@@ -8,8 +8,8 @@ import { CgArrowLongRight } from "react-icons/cg"
 const ExperiencesItem = () => {
     const router = useRouter()
     const [experiences, setExperiences] = useState([]);
-
-    const pb = new PocketBase('https://kaana.garooinc.com/kaana')
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
+    const pb = new PocketBase(backendUrl);
     pb.autoCancellation(false);
 
     useEffect(() => {

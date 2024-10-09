@@ -11,8 +11,8 @@ const Menu = () => {
     const [prices, setPrices] = useState({}); 
     const [selectedVariants, setSelectedVariants] = useState({});
     const { dispatch } = useCart();
-
-    const pb = new PocketBase('https://kaana.garooinc.com/kaana');
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
+    const pb = new PocketBase(backendUrl);
     pb.autoCancellation(false);
 
     const selectVariant = (e, itemId) => {

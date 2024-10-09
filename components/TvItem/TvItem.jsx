@@ -7,8 +7,9 @@ import FooterItem from '../FooterItem/FooterItem'
 
 const TvItem = () => {
     const [channels, setChannels] = useState([])
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
-    const pb = new PocketBase('https://kaana.garooinc.com/kaana')
+    const pb = new PocketBase(backendUrl);
     pb.autoCancellation(false);
 
     useEffect(() => {

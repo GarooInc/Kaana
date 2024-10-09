@@ -7,8 +7,9 @@ import { FaRegCalendar } from "react-icons/fa6"
 
 const ActivitiesItem = () => {
     const [activities, setActivities] = useState([])
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
-    const pb = new PocketBase('https://kaana.garooinc.com/kaana')
+    const pb = new PocketBase(backendUrl);
     pb.autoCancellation(false);
 
     useEffect(() => {
@@ -33,7 +34,7 @@ const ActivitiesItem = () => {
         { 
             activities.map((item, index) => (
                 <div key={index} className={`bg-white px-2 pb-12 gap-2 flex flex-col relative cursor-pointer ${(index + 1) % 4 !== 0 ? 'md:border-r md:border-black' : ''} ${(index + 1) % 2 !== 0 ? 'md:border-r md:border-black' : ''}`}>
-                    <img className="w-full md:h-60 h-60 object-cover" src={`https://kaana.garooinc.com/kaana/api/files/${item.collectionId}/${item.id}/${item.Image}?token=`} alt={item.name} />
+                    <img className="w-full md:h-60 h-60 object-cover" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.Image}?token=`} alt={item.name} />
                     <div className='flex flex-col gap-4  w-full'>
                         <h3 className="tiempos_description">{item.Title}</h3>
                         <div className="flex items-center leading-none gap-2 w-full">

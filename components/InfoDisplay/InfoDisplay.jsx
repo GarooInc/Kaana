@@ -5,7 +5,8 @@ import { useTranslation } from 'react-i18next';
 
 const InfoDisplay = ({ collection }) => {
     const [data, setData] = useState([]);
-    const pb = new PocketBase('https://kaana.garooinc.com/kaana');
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+    const pb = new PocketBase(backendUrl);
     pb.autoCancellation(false);
 
     const { i18n } = useTranslation();
