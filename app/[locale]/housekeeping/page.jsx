@@ -14,7 +14,7 @@ export default async function HouseKeeping({ params: { locale }}) {
     return (
         <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
         <div className="page bg-quaternary">
-            <HeaderItem v={"v5"} />
+            <HeaderItem v={"v4"} />
             <div className='info_container'>
                 <h2 className='italictiempos_title'>{t('home:nav3')}</h2>
                 <InfoDisplay collection="Housekeeping" />

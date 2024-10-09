@@ -15,7 +15,7 @@ export default async function RoomService({ params: { locale }}) {
     return (
         <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
         <main className="page bg-white relative">
-            <HeaderItem v={"v5"} />
+            <HeaderItem v={"v4"} />
             <Menu />
             <FooterCart />
         </main>

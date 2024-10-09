@@ -10,7 +10,7 @@ const HeaderItem = ({v, namePage, nav, principal}) => {
         <div className='flex flex-col justify-center items-center'>
           <img src={`/assets/images/logo_${v}.png`} alt="logo" className="w-[150px]" />
           {
-              namePage && <h1 className="text-md absolute bottom-2 m-0 text-oxblood font-bold font-futura">{namePage}</h1>
+              namePage && <h1 className="text-md absolute bottom-2 m-0 text-primary font-bold font-futura">{namePage}</h1>
           }
         </div>
     </div>

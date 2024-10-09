@@ -13,7 +13,7 @@ export default async function Experiences({ params: { locale }}) {
 
 return (
     <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
-        <HeaderItem v={"v5"} />
+        <HeaderItem v={"v4"} />
         <div className="page bg-white py-10 md:px-20 px-10">
             <h1 className="principal_title">Amenities</h1>
             <ExperiencesItem />

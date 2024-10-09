@@ -51,7 +51,7 @@ const LanguageSwitcher = () => {
               </defs>
             </svg>
           </div>
-          <select onChange={handleChange} value={currentLocale} tabIndex={0} className="dropdown-content card card-compact bg-redorange text-white z-[1] w-20 p-2 shadow">
+          <select onChange={handleChange} value={currentLocale} tabIndex={0} className="dropdown-content card card-compact bg-primary text-white z-[1] w-20 p-2 shadow">
               <option value="en">EN</option>
               <option value="es">ES</option>
           </select>

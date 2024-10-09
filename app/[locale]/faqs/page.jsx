@@ -15,7 +15,7 @@ return (
     <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
         <div className="page bg-quaternary relative">
             <div className="flex flex-col w-full items-center">
-                <HeaderItem v={"v2"} />
+                <HeaderItem v={"v4"} />
                 <h2 className='italictiempos_title'>{t('header:faqs')}</h2>
                 <div className='info_container'>
                     <div className='flex flex-col justify-center items-center gap-4 py-10 md:w-3/4'>

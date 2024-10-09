@@ -1,67 +1,40 @@
 "use client";
 import React, { useState, useEffect } from 'react'
-import PocketBase from 'pocketbase'
-import { IoIosArrowDropleft } from "react-icons/io"
-import { useRouter } from "next/navigation"
 import HeaderItem from '@/components/HeaderItem/HeaderItem'
 import FooterItem from '@/components/FooterItem/FooterItem'
+import TranslationsProvider from '@/components/TranslationsProvider'
+import initTranslations from '@/app/i18n'
+import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher';
+import ExperienceInnerItem from '@/components/ExperienceInnerItem/ExperienceInnerItem';
 
-const ExperiencePage = ({params}) => {
-    const [experience, setExperience] = useState('')
-    const router = useRouter()
+const namespaces = ['experience', 'header'];
+export default function Experience({ params: { locale, experienceId }}) {
+    const [translations, setTranslations] = useState({ t: () => '', resources: {} });
 
-    const pb = new PocketBase('https://kaana.garooinc.com/kaana')
-    pb.autoCancellation(false)
-
-    const current = params.experienceId
-    console.log(current)
-
+    // Carga las traducciones
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const record = await pb.collection('Experiences').getOne(current)
-                setExperience(record);
-            } catch (error) {
-                console.error("Error fetching data: ", error);
-            }
-        };
-
-        fetchData()
-    }, [params.postId])
-
-    const handleTitle = ({title}) => {
-        const words = title.split(' ')
-        const lastWord = words.pop()
-        const firstPart = words.join(' ')
-        return { firstPart, lastWord }
-    }
+      const loadTranslations = async () => {
+        const { t, resources } = await initTranslations(locale, namespaces);
+        setTranslations({ t, resources });
+      };
+      loadTranslations();
+    }, [locale]);
+  
+    const { t, resources } = translations;
 
 
   return (
-    <div className="page md:bg-white bg-secondary">
-        {
-            console.log(experience.title)
-        }
+    <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
+    <div className="page bg-white">
         <div className='flex flex-col justify-center items-center w-full relative'>
-            <HeaderItem v={"v4"} nav={'/experiences'} />
-            <div className='flex flex-col justify-center items-center w-full'>
-                <div className='md:flex flex-col md:flex-row justify-center w-full items-stretch'>
-                    <div className='md:w-1/2'>
-                        <img className="w-full object-cover" src={`https://kaana.garooinc.com/kaana/api/files/${experience.collectionId}/${experience.id}/${experience.image}?token=`} alt={experience.name} />
-                    </div>
-                    <div className='p-10 bg-secondary md:min-h-full md:w-1/2 flex flex-col justify-center'>
-                        <h1 className="text-2xl md:text-4xl text-start text-primary font-tiempos italic">{experience.title}</h1>
-                        <div className="text-black md:px-0 gap-4 flex flex-col experiences" dangerouslySetInnerHTML={{ __html: experience.description }}></div>
-                    </div>
-                </div>
+            <HeaderItem/>
+            <div className='flex flex-col justify-center items-center pt-4 w-full'>
+                <ExperienceInnerItem experienceId={experienceId} />
             </div>
         </div>
-        <div className='md:flex hidden justify-center items-center'>
-            <FooterItem />
-        </div>
+        <LanguageSwitcher />
+        <FooterItem />
     </div>
-
+    </TranslationsProvider>
   )
 }
-
-export default ExperiencePage

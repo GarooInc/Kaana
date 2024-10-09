@@ -17,7 +17,7 @@ return (
     <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
     <div className="page">
         <div className="flex flex-col w-full h-screen">
-            <HeaderItem v={"v5"}/>
+            <HeaderItem v={"v4"}/>
             <div className="w-full md:h-3/5">
                 <Carousel />
             </div>

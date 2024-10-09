@@ -38,8 +38,6 @@
         "lightgreen": "#bad056",
         "lightgray": "#555347",
         "lightgreen": "#BAD056",
-        "redorange": "#FF3D1E",
-        "oxblood": "#AE2602",
       },
       placeholderColor: {
         'custom-green': '#6C7731',
