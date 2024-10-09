@@ -13,11 +13,11 @@ export default async function Home({ params: { locale }}) {
 
     return (
         <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
-        <main className="page bg-quaternary">
+        <main className="page bg-secondary">
             <HeaderItem v={"v4"} principal />
             <div className='flex flex-col pt-10 pb-20 md:py-20 md:px-40 px-10 gap-4'>
                 <h1 className="principal_title m-0 flex gap-2 justify-center items-center md:flex-row flex-col">{t('letter:letter_title')}</h1>
-                <TextItem text={t('letter:letter_text')} color="secondary" />
+                <TextItem text={t('letter:letter_text')} color="quaternary" />
                 <div className='w-full flex justify-center items-center'>
                     <ButtonNav title={t('letter:button')} link="/menu" />
                 </div>

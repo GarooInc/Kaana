@@ -13,7 +13,7 @@ const ButtonNav = ({title, link}) => {
     }
   return (
     <div className="w-80 h-16 cursor-pointer">
-      <div className="p-4 flex font-futura font-light text-quaternary bg-primary/60 rounded-full" onClick={handleClick}>
+      <div className="p-4 flex font-futura font-light text-quaternary bg-primary rounded-full" onClick={handleClick}>
           <span className='flex justify-between w-full'>{title} <CgArrowLongRight className="inline-block text-xl" /></span>
       </div>
   </div>
