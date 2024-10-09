@@ -18,7 +18,7 @@ const ExperienceInnerItem = ({experienceId}) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const record = await pb.collection('amenities').getOne(current)
+                const record = await pb.collection('Experiences').getOne(current)
                 setExperience(record);
                 setLoading(false)
             } catch (error) {
