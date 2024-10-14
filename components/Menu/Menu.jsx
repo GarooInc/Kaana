@@ -78,7 +78,7 @@ const Menu = () => {
                     <div className='w-full h-[1px] bg-black mt-2'></div>
                     <div className='flex gap-2 justify-between items-center'>
                     <p className="text-lightgray text-xs font-light leading-none font-futura">£{prices[item.id] || item.Price}</p>
-                    <button className="quaternary_button" onClick={() => addToCart(item)}>Add to cart</button>
+                    <button className="green_button" onClick={() => addToCart(item)}>Add to cart</button>
                     </div>
                 </div>
                 </div>

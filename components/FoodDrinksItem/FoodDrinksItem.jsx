@@ -52,7 +52,7 @@ const FoodDrinksItem = () => {
                                     <TbClockHour3Filled className="text-primary text-md" />
                                     {item.open} - {item.closes}
                                 </p>
-                                <button className='quaternary_button' onClick={() => openPdf(item)}>Menú</button>
+                                <button className='green_button' onClick={() => openPdf(item)}>Menú</button>
                         </div>
                     </div>
                 </div>

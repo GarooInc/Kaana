@@ -20,8 +20,7 @@ return (
                 <div className="w-full  bg-secondary rounded-lg shadow p-10 my-10 font-futura text-black text-center flex flex-col justify-center items-center gap-4">
                     <h2 className='italictiempos_title'>{t('activities:title')}</h2>
                     <span className='md:w-1/3 tiempos_description'>
-                        Find ocean-view rooms, eclectic cuisine, and sparkling pools along the Caribbean Sea. Explore our all-inclusive resort ahead of your stay and
-                        imagine what&apos;s possible.
+                        {t('activities:desc')}
                     </span>
                 </div>
                 <ActivitiesItem />
