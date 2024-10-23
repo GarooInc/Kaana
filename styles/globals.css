@@ -78,8 +78,88 @@
   @apply underline;
 }
 
+/* adventure */
+.adventure_container{
+  @apply grid grid-cols-1 gap-4 xl:grid-cols-4 grid-flow-row-dense auto-rows-auto md:px-10 pb-20;
+}
+
+.adventure_img{
+  @apply md:w-full w-full h-48 md:h-52 object-cover;
+}
+
+.adventure_title{
+  @apply text-primary text-xl leading-tight font-tiempos mt-2;
+}
+
+.button_line{
+    @apply text-tertiary border-b-2 border-tertiary px-6 py-2 mt-2 text-sm font-futura;
+}
+
 
 /* emergency hk fd */
 .info_container{
   @apply bg-quaternary w-full pt-10 pb-20 md:pb-20 md:pt-10 flex flex-col justify-center items-center relative;
+}
+
+/* cart item */
+.cart_container{
+  @apply bg-secondary w-80 md:w-[450px] md:p-10 pt-10 px-4 h-screen;
+}
+
+.cart_items{
+  @apply py-10 flex flex-col overflow-y-scroll h-[90%];
+}
+
+.remove_button{
+  @apply justify-start items-center text-xs inline-flex font-futura bg-transparent text-black px-2 py-1 absolute right-2 border border-black;
+}
+
+.cart_image{
+  @apply md:w-40 w-32 h-40 object-cover;
+}
+
+.quantity_button{
+  @apply flex justify-between items-center shadow-xl w-full border border-black;
+}
+
+.quantity_button_inner{
+  @apply  shadow justify-start items-center text-xs inline-flex font-futura  text-primary px-2 py-1;
+}
+
+.quantity_text{
+  @apply text-black text-xs font-futura leading-none px-4;
+}
+
+.item_title{
+  @apply text-black md:text-base text-xs leading-tight font-futura mt-8 w-full gap-4 flex flex-col;
+}
+
+.checkout_button{
+  @apply text-tertiary fixed bottom-4 right-4 font-futura flex gap-2 justify-center items-center;
+}
+
+/* checkout */
+.checkout_form{
+  @apply fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center;
+}
+
+.form_container{
+  @apply flex flex-col gap-4 mt-4;
+}
+
+.msg_container{
+  @apply fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center;
+}
+
+.cst_message{
+  @apply bg-white rounded-lg p-6 w-80 flex flex-col justify-center items-center relative;
+}
+
+.close_btn {
+  @apply text-black text-2xl absolute top-2 right-2;
+}
+
+/* cart */
+.cart_bubble{
+  @apply absolute top-0 right-0 bg-tertiary text-white rounded-full w-4 h-4 flex items-center justify-center text-xs;
 }

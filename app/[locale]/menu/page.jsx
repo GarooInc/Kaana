@@ -40,6 +40,14 @@ export default async function Menu({ params: { locale }}) {
             link: '/adventures'
         },
         {
+            title: t('home:nav13'),
+            link: '/spa'
+        },
+        {
+            title: t('home:nav12'),
+            link: '/room-services'
+        },
+        {
             title: t('home:nav10'),
             link: '/emergency'
         },
