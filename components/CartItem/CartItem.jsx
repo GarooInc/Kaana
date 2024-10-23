@@ -5,6 +5,9 @@ import { useRouter } from "next/navigation"
 import { CgArrowLongRight } from 'react-icons/cg'
 import { TfiClose } from "react-icons/tfi"
 import { motion } from "framer-motion"
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+
 
 const CartItem = ({ showCart }) => {
     const { state, dispatch } = useCart()
@@ -87,6 +90,13 @@ const CartItem = ({ showCart }) => {
         }, 300)
     }
 
+    const handlePhoneChange = (value) => {
+        setForm({
+            ...form,
+            phone: value
+        })
+    }
+
     const variants = {
         open: { opacity: 1, x: 0 },
         closed: { opacity: 0, x: "-100%", transition: { duration: 0.3 } },
@@ -134,17 +144,23 @@ const CartItem = ({ showCart }) => {
                 <button className="checkout_button" onClick={handleCheckout}>Checkout <CgArrowLongRight className="text-light-brown text-2xl" /></button>
             )}
         </motion.div>
-            {showForm && (
+        {showForm && (
                 <div className="checkout_form">
-                    <motion.div className="bg-cream p-6 w-80" animate={showForm ? "formOpen" : "formClosed"} variants={variants} initial="formClosed">
+                    <motion.div className="bg-tertiary p-6 w-80" animate={showForm ? "formOpen" : "formClosed"} variants={variants} initial="formClosed">
                         <div className="flex justify-end">
                             <button onClick={() => setShowForm(false)}><TfiClose className="text-black text-2xl" /></button>
                         </div>
                         <form className="form_container">
-                            <input type="text" placeholder="Phone" className="input_cart" onChange={handleChange} name="phone" />
+                            <PhoneInput
+                                country={'us'} 
+                                placeholder='Phone'
+                                value={form.phone}
+                                onChange={handlePhoneChange}
+                                inputClass="input_cart"
+                            />
                             <input type="text" placeholder="Family" className="input_cart" onChange={handleChange} name="family" />
                             <input type="text" placeholder="Room" className="input_cart" onChange={handleChange} name="room" />
-                            <button className="text-green uppercase p-2 font-futura" onClick={(e) => onHandleSubmit(e)}>Submit</button>
+                            <button className="text-secondary uppercase p-2 font-futura" onClick={(e) => onHandleSubmit(e)}>Submit</button>
                         </form>
                     </motion.div>
                 </div>

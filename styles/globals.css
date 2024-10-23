@@ -63,8 +63,16 @@
   @apply text-quaternary border-2 border-quaternary rounded-full px-6 py-2 mt-2 text-sm font-futura;
 }
 
-.input_cart{
-  @apply bg-quaternary font-futura text-secondary p-2;
+.input_cart, .react-tel-input .form-control{
+  @apply bg-secondary font-futura text-black px-2;
+}
+
+.input_cart, .react-tel-input .form-control{
+  width: 100% !important;
+  border-radius: 0px !important;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+  margin : 0px !important;
 }
 
 .background {
