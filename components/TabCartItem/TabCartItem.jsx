@@ -54,14 +54,14 @@ const TabCartItem = ({ collection }) => {
 
     return (
         <div className='flex flex-col gap-10'>
-            <div className='flex gap-4 justify-center items-center md:flex-row flex-col'>
+            <div className='flex gap-4 justify-center items-center md:flex-row md:flex-nowrap flex-wrap'>
                 {
                     currentLocale === 'es' ? uniqueTags_es.map((tag, index) => (
-                        <button key={index} className={`button_line w-[250px] h-16 ${filter === tag ? 'bg-secondary' : ''}`} onClick={() => setFilter(tag)}>
+                        <button key={index} className={`button_line md:w-[250px] w-[100px] h-16 ${filter === tag ? 'bg-secondary' : ''}`} onClick={() => setFilter(tag)}>
                             {tag}
                         </button>
                     )) : uniqueTags_en.map((tag, index) => (
-                        <button key={index} className={`button_line w-[250px] h-16 ${filter === tag ? 'bg-secondary' : ''}`} onClick={() => setFilter(tag)}>
+                        <button key={index} className={`button_line md:w-[250px] w-[100px] h-16 ${filter === tag ? 'bg-secondary' : ''}`} onClick={() => setFilter(tag)}>
                             {tag}
                         </button>
                     ))
