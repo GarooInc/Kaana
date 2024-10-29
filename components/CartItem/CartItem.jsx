@@ -1,8 +1,8 @@
 "use client"
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useCart } from '@/contexts/CartContext'
 import { useRouter } from "next/navigation"
-import { CgArrowLongRight } from 'react-icons/cg'
+import { CgArrowLongRight, CgShoppingCart } from 'react-icons/cg'
 import { TfiClose } from "react-icons/tfi"
 import { motion } from "framer-motion"
 import PhoneInput from 'react-phone-input-2'
@@ -18,6 +18,7 @@ const CartItem = ({ showCart }) => {
     const [showForm, setShowForm] = useState(false)
     const [isOpen, setIsOpen] = useState(true)
     const [removingItem, setRemovingItem] = useState(null)
+    const cartRef = useRef(null) 
 
     const [form, setForm] = useState({
         phone: '',
@@ -34,16 +35,14 @@ const CartItem = ({ showCart }) => {
     }
 
     const onHandleSubmit = async (event) => {
-        console.log(form)
+        event.preventDefault()
         const items = state.items.map(item => ({
             "itemName": item.Title || item.title,
             "variant": item.Variant,
             "price": parseFloat(item.Price),
             "quantity": item.quantity
         }))
-        console.log("Items", items)
-
-        event.preventDefault()
+        
         const response = await fetch(`${ordersUrl}/api/v1/orders`, {
             method: 'POST',
             headers: {
@@ -58,13 +57,11 @@ const CartItem = ({ showCart }) => {
         })
 
         if (response.ok) {
-            console.log('Order created')
             setMessage('Order created successfully')
             dispatch({ type: 'LOAD_ITEMS', payload: [] })
             setShowForm(false)
         } else {
             setMessage('Error creating order')
-            console.log('Error')
         }
     }
 
@@ -97,6 +94,20 @@ const CartItem = ({ showCart }) => {
         })
     }
 
+    const handleClickOutside = (event) => {
+        if (cartRef.current && !cartRef.current.contains(event.target)) {
+            setIsOpen(false)
+            showCart(false)
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside)
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside)
+        }
+    }, [])
+
     const variants = {
         open: { opacity: 1, x: 0 },
         closed: { opacity: 0, x: "-100%", transition: { duration: 0.3 } },
@@ -107,10 +118,11 @@ const CartItem = ({ showCart }) => {
 
     return (
         <>
-        <motion.div className="cart_container" animate={isOpen ? "open" : "closed"} variants={variants} initial="closed">
+        <motion.div ref={cartRef} className="cart_container" animate={isOpen ? "open" : "closed"} variants={variants} initial="closed">
             <div className="flex justify-between items-center">
-                <img src="/assets/images/room_service/cart.png" alt="logo" className="w-[50px] hidden" />
-                <button onClick={onHandleCloseCart}><TfiClose className="text-black text-2xl" /></button>
+            <button onClick={onHandleCloseCart} className="close_button">
+                <TfiClose className="text-black text-2xl" />
+            </button>
             </div>
             {state.items.length > 0 ? (
                 <ul className='cart_items'>
@@ -122,9 +134,13 @@ const CartItem = ({ showCart }) => {
                             variants={variants}
                         >
                             <button className="remove_button" onClick={() => handleRemoveItem(item)}>X</button>
-                            <img className="cart_image" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.image}?token=`} alt={item.name} />
+                            {
+                                item.image && (
+                                    <img className="cart_image" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.image}?token=`} alt={item.name} />
+                                )
+                            }
                             <div className='flex flex-col justify-between w-full'>
-                                <h3 className="item_title">{item.title || item.Title} <span className='text-aqua'>£{item.Price}</span></h3>
+                                <h3 className="item_title">{item.title || item.Title} <span className='text-secondary'>₡{item.Price}</span></h3>
                                 {item.variant && (
                                     <p className='text-gray text-xs font-futura leading-none'>Variant: {item.Variant}</p>
                                 )}
@@ -144,7 +160,7 @@ const CartItem = ({ showCart }) => {
                 <button className="checkout_button" onClick={handleCheckout}>Checkout <CgArrowLongRight className="text-light-brown text-2xl" /></button>
             )}
         </motion.div>
-        {showForm && (
+            {showForm && (
                 <div className="checkout_form">
                     <motion.div className="bg-tertiary p-6 w-80" animate={showForm ? "formOpen" : "formClosed"} variants={variants} initial="formClosed">
                         <div className="flex justify-end">

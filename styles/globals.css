@@ -115,7 +115,7 @@
 }
 
 .cart_items{
-  @apply py-10 flex flex-col overflow-y-scroll h-[90%];
+  @apply py-12 flex flex-col overflow-y-scroll h-[90%];
 }
 
 .remove_button{
@@ -144,6 +144,10 @@
 
 .checkout_button{
   @apply text-tertiary fixed bottom-4 right-4 font-futura flex gap-2 justify-center items-center;
+}
+
+.close_button {
+  @apply fixed top-4 left-0 p-4;
 }
 
 /* checkout */
