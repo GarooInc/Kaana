@@ -100,7 +100,7 @@
 }
 
 .button_line{
-    @apply text-tertiary border-b-2 border-tertiary px-6 py-2 mt-2 text-sm font-futura;
+    @apply text-tertiary border-b-2 border-tertiary px-4 py-2 mt-2 text-sm font-futura flex justify-center items-center;
 }
 
 
