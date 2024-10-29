@@ -129,7 +129,7 @@ const CartItem = ({ showCart }) => {
                     {state.items.map((item, index) => (
                         <motion.li
                             key={index}
-                            className='px-2 pb-12 gap-2 flex relative'
+                            className='px-2 pb-4 gap-2 flex relative'
                             animate={removingItem === item.id ? "removing" : "open"}
                             variants={variants}
                         >

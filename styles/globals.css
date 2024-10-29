@@ -115,7 +115,7 @@
 }
 
 .cart_items{
-  @apply py-12 flex flex-col overflow-y-scroll h-[90%];
+  @apply py-16 flex flex-col overflow-y-scroll h-[90%];
 }
 
 .remove_button{
@@ -147,7 +147,7 @@
 }
 
 .close_button {
-  @apply fixed top-4 left-0 p-4;
+  @apply fixed top-8 left-4 p-4;
 }
 
 /* checkout */

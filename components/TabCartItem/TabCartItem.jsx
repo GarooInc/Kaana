@@ -57,11 +57,11 @@ const TabCartItem = ({ collection }) => {
             <div className='flex gap-4 justify-center items-center md:flex-row md:flex-nowrap flex-wrap'>
                 {
                     currentLocale === 'es' ? uniqueTags_es.map((tag, index) => (
-                        <button key={index} className={`button_line md:w-[250px] w-[100px] h-16 ${filter === tag ? 'bg-secondary' : ''}`} onClick={() => setFilter(tag)}>
+                        <button key={index} className={`button_line md:w-[250px] w-[40%] h-16 ${filter === tag ? 'bg-secondary' : ''}`} onClick={() => setFilter(tag)}>
                             {tag}
                         </button>
                     )) : uniqueTags_en.map((tag, index) => (
-                        <button key={index} className={`button_line md:w-[250px] w-[100px] h-16 ${filter === tag ? 'bg-secondary' : ''}`} onClick={() => setFilter(tag)}>
+                        <button key={index} className={`button_line md:w-[250px] w-[40%] h-16 ${filter === tag ? 'bg-secondary' : ''}`} onClick={() => setFilter(tag)}>
                             {tag}
                         </button>
                     ))
