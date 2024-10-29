@@ -95,7 +95,7 @@ const CartItem = ({ showCart }) => {
     }
 
     const handleClickOutside = (event) => {
-        if (cartRef.current && !cartRef.current.contains(event.target)) {
+        if (!showForm && cartRef.current && !cartRef.current.contains(event.target)) {
             setIsOpen(false)
             showCart(false)
         }
@@ -106,7 +106,7 @@ const CartItem = ({ showCart }) => {
         return () => {
             document.removeEventListener("mousedown", handleClickOutside)
         }
-    }, [])
+    }, [showForm])
 
     const variants = {
         open: { opacity: 1, x: 0 },
