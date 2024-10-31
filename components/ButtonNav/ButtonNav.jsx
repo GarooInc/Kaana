@@ -1,11 +1,11 @@
 "use client";
 import React from 'react'
-import { CgArrowLongRight } from 'react-icons/cg';
+import { IoIosArrowForward } from "react-icons/io";
 import { useRouter } from "next/navigation"
 
 
 
-const ButtonNav = ({title, link}) => {
+const ButtonNav = ({title, link, className}) => {
     const router = useRouter()
     
     const handleClick = () => {
@@ -13,8 +13,8 @@ const ButtonNav = ({title, link}) => {
     }
   return (
     <div className="w-80 h-16 cursor-pointer">
-      <div className="p-4 flex font-futura font-light text-quaternary bg-primary rounded-full" onClick={handleClick}>
-          <span className='flex justify-between w-full'>{title} <CgArrowLongRight className="inline-block text-xl" /></span>
+      <div className={`p-4 flex font-futura font-light border-t-2 h-full border-quaternary text-quaternary ${className}`} onClick={handleClick}>
+          <span className='flex justify-between w-full uppercase'>{title} <IoIosArrowForward className="inline-block text-xl text-tertiary" /></span>
       </div>
   </div>
 

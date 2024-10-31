@@ -62,10 +62,15 @@ export default async function Menu({ params: { locale }}) {
         <main className="page bg-secondary pt-10 pb-20 md:py-10">
             <div className='flex flex-col justify-center items-center'>
                 <img src="/assets/images/logo_v3.png" alt="logo" className="w-[150px]" />
-                <div className="flex flex-col justify-center items-center gap-4 py-10">
+                <div className="flex flex-col justify-center items-center py-10">
                     {
                         nav.map((item, index) => (
-                            <ButtonNav key={index} title={item.title} link={item.link} />
+                            <ButtonNav 
+                                key={index} 
+                                title={item.title} 
+                                link={item.link} 
+                                className={index === nav.length - 1 ? 'border-b-2 border-quaternary' : ''}
+                            />
                         ))
                     }
                 </div>
