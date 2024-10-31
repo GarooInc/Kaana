@@ -46,3 +46,16 @@
     font-weight: 100;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'playfair';
+    src: url('PlayfairDisplay-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'playfair';
+    src: url('PlayfairDisplay-Italic.ttf') format('truetype');
+    font-style: italic;
+}

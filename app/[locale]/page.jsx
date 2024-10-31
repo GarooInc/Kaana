@@ -19,7 +19,7 @@ export default async function Home({ params: { locale }}) {
                 <h1 className="principal_title m-0 flex gap-2 justify-center items-center md:flex-row flex-col">{t('letter:letter_title')}</h1>
                 <TextItem text={t('letter:letter_text')} color="quaternary" />
                 <div className='w-full flex justify-center items-center'>
-                    <ButtonNav title={t('letter:button')} link="/menu" />
+                    <ButtonNav title={t('letter:button')} link="/menu" className="border-b-2 border-quaternary" />
                 </div>
             </div>
         </main>

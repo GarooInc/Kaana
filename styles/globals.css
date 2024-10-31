@@ -31,7 +31,7 @@
 }
 
 .principal_title{
-  @apply md:text-4xl text-2xl text-center text-primary font-futura;
+  @apply md:text-6xl text-4xl text-center text-secondary font-playfair;
 }
 
 .italictiempos_title{
@@ -84,6 +84,28 @@
 
 .infodisplay a{
   @apply underline;
+}
+
+/* welcome */
+.welcome_container{
+  @apply flex flex-col justify-center items-center w-full h-full bg-quaternary p-10 md:p-14;
+}
+
+.welcome_container p{
+  @apply text-center md:text-xl text-lg  text-secondary font-futura tracking-widest;
+}
+
+/* button nav */
+.button_nav_container{
+  @apply w-80 h-16 cursor-pointer;
+}
+
+.button_nav{
+  @apply p-4 flex font-futura  border-t-2 h-full border-quaternary text-quaternary;
+}
+
+.button_nav_icon{
+  @apply inline-block text-xl text-tertiary;
 }
 
 /* adventure */

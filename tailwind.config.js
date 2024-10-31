@@ -29,6 +29,7 @@
         'futura': ['futura', 'sans-serif'],
         'futura-light': ['futura-light', 'sans-serif'],
         'tiempos': ['tiempos', 'serif'],
+        'playfair': ['playfair', 'serif'],
       },
       colors: {
         "primary": "#C5A262",

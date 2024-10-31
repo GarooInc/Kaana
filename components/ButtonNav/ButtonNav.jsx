@@ -1,24 +1,41 @@
 "use client";
-import React from 'react'
+import React from 'react';
 import { IoIosArrowForward } from "react-icons/io";
-import { useRouter } from "next/navigation"
+import { useRouter } from "next/navigation";
 
-
-
-const ButtonNav = ({title, link, className}) => {
-    const router = useRouter()
+const ButtonNav = ({ title, link, className }) => {
+    const router = useRouter();
     
     const handleClick = () => {
-        router.push(link)
-    }
-  return (
-    <div className="w-80 h-16 cursor-pointer">
-      <div className={`p-4 flex font-futura font-light border-t-2 h-full border-quaternary text-quaternary ${className}`} onClick={handleClick}>
-          <span className='flex justify-between w-full uppercase'>{title} <IoIosArrowForward className="inline-block text-xl text-tertiary" /></span>
-      </div>
-  </div>
+        router.push(link);
+    };
 
-  )
-}
+    const renderTitle = () => {
+        return title.split(/(<br>|<\/br>)/).map((part, index) => {
+            if (part === "<br>" || part === "</br>") {
+                return null; 
+            }
+            const isStyled = title.includes(`<br>${part}</br>`);
+            return (
+                <span key={index} className={isStyled ? 'font-playfair italic text-lg' : 'uppercase tracking-wider'}>
+                    {part}
+                </span>
+            );
+        });
+    };
 
-export default ButtonNav
+    return (
+        <div className="button_nav_container">
+            <div className={`button_nav ${className}`} onClick={handleClick}>
+                <span className="flex justify-between w-full">
+                    <div className="flex items-center gap-2">
+                    {renderTitle()} 
+                    </div>
+                    <IoIosArrowForward className="button_nav_icon" />
+                </span>
+            </div>
+        </div>
+    );
+};
+
+export default ButtonNav;
