@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import PocketBase from 'pocketbase';
 import { useTranslation } from 'react-i18next';
+import { IoIosArrowForward } from "react-icons/io";
 
 const InfoDisplay = ({ collection }) => {
     const [data, setData] = useState([]);
@@ -30,10 +31,13 @@ const InfoDisplay = ({ collection }) => {
         <div className="flex flex-col justify-center items-center gap-4 py-10 md:w-3/4 px-10">
             {
                 data.map((item, index) => (
-                    <div className="collapse collapse-arrow border-b border-secondary w-full rounded-none" key={index}>
+                    <div className="collapse  border-b border-secondary w-full rounded-none" key={index}>
                         <input type="checkbox" className="peer" />
-                        <div className="collapse-title text-xl font-medium text-white font-futura uppercase peer-checked:collapse-open">
-                            {item[`title_${currentLocale}`]}
+                        <div className="collapse-title md:text-lg text-sm font-medium text-white font-futura uppercase peer-checked:collapse-open">
+                            <div className='flex justify-between items-center'>
+                                {item[`title_${currentLocale}`]}
+                                <IoIosArrowForward className="collapse-icon text-primary text-xl" />
+                            </div>
                         </div>
                         <div className="collapse-content peer-checked:collapse-open">
                             <p className='text-white font-futura infodisplay'
