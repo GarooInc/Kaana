@@ -17,7 +17,7 @@ const ButtonNav = ({ title, link, className }) => {
             }
             const isStyled = title.includes(`<br>${part}</br>`);
             return (
-                <span key={index} className={isStyled ? 'font-playfair italic text-lg' : 'uppercase tracking-wider'}>
+                <span key={index} className={isStyled ? 'font-playfair italic md:text-lg text-sm' : 'uppercase tracking-wider'}>
                     {part}
                 </span>
             );

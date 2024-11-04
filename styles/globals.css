@@ -35,7 +35,7 @@
 }
 
 .italictiempos_title{
-  @apply text-center text-4xl text-primary font-tiempos italic py-4;
+  @apply text-center text-4xl text-secondary font-playfair italic py-4;
 }
 
 .tiempos_description{
@@ -83,7 +83,7 @@
 }
 
 .infodisplay a{
-  @apply underline;
+  @apply underline text-tertiary;
 }
 
 /* welcome */
@@ -91,13 +91,20 @@
   @apply flex flex-col justify-center items-center w-full h-full bg-quaternary p-10 md:p-14;
 }
 
+.welcome_container{
+  background-image: url('/assets/images/welcome/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 .welcome_container p{
-  @apply text-center md:text-xl text-lg  text-secondary font-futura tracking-widest;
+  @apply text-center md:text-lg text-sm  text-secondary font-futura tracking-widest;
 }
 
 /* button nav */
 .button_nav_container{
-  @apply w-80 h-16 cursor-pointer;
+  @apply w-96 h-16 cursor-pointer;
 }
 
 .button_nav{
@@ -196,4 +203,13 @@
 /* cart */
 .cart_bubble{
   @apply absolute top-0 right-0 bg-tertiary text-white rounded-full w-4 h-4 flex items-center justify-center text-xs;
+}
+
+/* front desk */
+.fontdesk_item{
+  @apply flex items-center flex-col;
+}
+
+.fontdesk_item_text{
+  @apply md:text-lg text-primary flex flex-col items-center justify-center;
 }

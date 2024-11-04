@@ -28,6 +28,7 @@ return (
                 <span className="text-secondary text-md font-futura text-center leading-6 tracking-wide my-4">
                     {t('welcome:content')}
                 </span>
+                <img className="w-40" src="/assets/images/logo_luxury.png" alt="luxury logo"/>
             </div>
         </div>
       </div>

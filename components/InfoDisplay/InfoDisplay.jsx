@@ -31,9 +31,8 @@ const InfoDisplay = ({ collection }) => {
             {
                 data.map((item, index) => (
                     <div className="collapse collapse-arrow border-b border-secondary w-full rounded-none" key={index}>
-                        {/* Cambiado a checkbox */}
                         <input type="checkbox" className="peer" />
-                        <div className="collapse-title text-xl font-medium text-white font-tiempos peer-checked:collapse-open">
+                        <div className="collapse-title text-xl font-medium text-white font-futura uppercase peer-checked:collapse-open">
                             {item[`title_${currentLocale}`]}
                         </div>
                         <div className="collapse-content peer-checked:collapse-open">
