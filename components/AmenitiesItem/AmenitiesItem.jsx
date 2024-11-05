@@ -2,15 +2,17 @@
 import React, {useState, useEffect} from 'react'
 import PocketBase from 'pocketbase'
 import { useRouter } from "next/navigation"
-import { CgArrowLongRight } from "react-icons/cg"
+import { useTranslation } from 'react-i18next';
 
 
-const ExperiencesItem = () => {
+const AmenitiesItem = () => {
     const router = useRouter()
     const [experiences, setExperiences] = useState([]);
     const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
     const pb = new PocketBase(backendUrl);
     pb.autoCancellation(false);
+    const { i18n } = useTranslation();
+    const currentLocale = i18n.language;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,15 +31,14 @@ const ExperiencesItem = () => {
     }, [])
 
   return (
-    <div className="grid grid-cols-2 gap-4 md:grid-cols-4 grid-flow-row-dense auto-rows-auto pt-10">
+    <div className="grid grid-cols-2 gap-4 md:grid-cols-4 grid-flow-row-dense auto-rows-auto p-10 w-full">
         {
             experiences.map((item, index) => (
-                <div key={index} className={`bg-white px-2 pb-12 gap-2 flex flex-col relative cursor-pointer ${(index + 1) % 4 !== 0 ? 'md:border-r md:border-black' : ''} ${(index + 1) % 2 !== 0 ? 'border-r border-black' : ''}`}
-                    onClick={() => router.push(`/experience/${item.id}`)}>
-                    <img className="md:w-full md:h-42 w-40 h-48  object-cover" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.image}?token=`} alt={item.name} />
-                    <div className='flex justify-between items-center'>
-                        <h3 className="text-black text-base leading-tight font-tiempos mt-2">{item.title}</h3>
-                        <CgArrowLongRight className="text-2xl text-black" />
+                <div key={index} className={`pb-12 gap-2 flex flex-col relative cursor-pointer`}
+                    onClick={() => router.push(`/experience/${item.id}`)} style={{backgroundColor: item.background_color}}>
+                    <img className="w-full md:h-60 h-32  object-cover" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.image}?token=`} alt={item.name} />
+                    <div className='flex justify-center items-center'>
+                        <h3 className={`text-base leading-tight font-futura mt-2 uppercase`} style={{color: item.text_color}}>{item[`title_${currentLocale}`]}</h3>
                     </div>
                 </div>
             ))
@@ -47,4 +48,4 @@ const ExperiencesItem = () => {
   )
 }
 
-export default ExperiencesItem
+export default AmenitiesItem

@@ -15,7 +15,7 @@ export default async function FrontDesk({ params: { locale }}) {
     return (
         <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
         <div className="page bg-quaternary">
-            <HeaderItem v={"v2"} transparent/>
+            <HeaderItem v={"v5"} transparent whiteArrow/>
             <div className='info_container'>
                 <h2 className='italictiempos_title'>{t('frontdesk:title')}</h2>
                         <div className='flex flex-col md:items-center justify-center gap-4 font-futura uppercase '>
@@ -34,7 +34,7 @@ export default async function FrontDesk({ params: { locale }}) {
                                 <span className="fontdesk_item_text">{t('frontdesk:wifi_password')}: kaana2022</span>
                             </div>
                         </div>
-                <InfoDisplay collection="Front_Desk" />
+                <InfoDisplay collection="Front_Desk" colorlines="white" coloricon="primary" />
                 <FooterItem  transparent/>
             </div>
         </div>

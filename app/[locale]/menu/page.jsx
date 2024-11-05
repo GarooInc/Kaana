@@ -25,7 +25,7 @@ export default async function Menu({ params: { locale }}) {
         },
         {
             title: t('home:nav4'),
-            link: '/experiences'
+            link: '/amenities'
         },
         {
             title: t('home:nav5'),
@@ -60,9 +60,9 @@ export default async function Menu({ params: { locale }}) {
     return (
         <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
         <main className="page bg-secondary pt-10 pb-20 md:py-10">
-            <div className='flex flex-col justify-center items-center'>
+            <div className='flex flex-col justify-center items-center w-full'>
                 <img src="/assets/images/logo_v3.png" alt="logo" className="w-[150px]" />
-                <div className="flex flex-col justify-center items-center py-10">
+                <div className="flex flex-col justify-center items-center py-10 w-full px-10">
                     {
                         nav.map((item, index) => (
                             <ButtonNav 

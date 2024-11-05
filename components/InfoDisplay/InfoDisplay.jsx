@@ -4,7 +4,7 @@ import PocketBase from 'pocketbase';
 import { useTranslation } from 'react-i18next';
 import { IoIosArrowForward } from "react-icons/io";
 
-const InfoDisplay = ({ collection }) => {
+const InfoDisplay = ({ collection, colorlines, coloricon }) => {
     const [data, setData] = useState([]);
     const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
     const pb = new PocketBase(backendUrl);
@@ -31,16 +31,16 @@ const InfoDisplay = ({ collection }) => {
         <div className="flex flex-col justify-center items-center gap-4 py-10 md:w-3/4 px-10">
             {
                 data.map((item, index) => (
-                    <div className="collapse  border-b border-secondary w-full rounded-none" key={index}>
+                    <div className={`collapse  border-b border-${colorlines} w-full rounded-none`} key={index}>
                         <input type="checkbox" className="peer" />
-                        <div className="collapse-title md:text-lg text-sm font-medium text-white font-futura uppercase peer-checked:collapse-open">
+                        <div className={`collapse-title md:text-lg text-sm font-medium font-futura uppercase peer-checked:collapse-open text-${colorlines}`}>
                             <div className='flex justify-between items-center'>
                                 {item[`title_${currentLocale}`]}
-                                <IoIosArrowForward className="collapse-icon text-primary text-xl" />
+                                <IoIosArrowForward className={`collapse-icon text-xl ${coloricon ? `text-${coloricon}` : ''}`} />
                             </div>
                         </div>
                         <div className="collapse-content peer-checked:collapse-open">
-                            <p className='text-white font-futura infodisplay'
+                            <p className={`font-futura infodisplay text-${colorlines}`}
                                 dangerouslySetInnerHTML={{ __html: item[`desc_${currentLocale}`] }}>
                             </p>
                         </div>

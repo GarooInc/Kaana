@@ -1,17 +1,14 @@
 import React from 'react'
 import ArrowBack from '@/components/ArrowBack/ArrowBack'
 
-const HeaderItem = ({v, namePage, nav, principal,transparent}) => {
+const HeaderItem = ({v, nav, principal,transparent, whiteArrow}) => {
   return (
-    <div className={`w-full flex justify-center items-center  relative py-2 ${namePage ? 'py-4' : ''} ${transparent ? 'bg-transparent' : 'bg-white'}`}>
+    <div className={`w-full flex justify-center items-center  relative py-10 ${transparent ? 'bg-transparent' : 'bg-white'}`}>
         {
-          !principal && <ArrowBack absolute nav={nav ? nav : '/menu'} white={transparent? true : false}/>
+          !principal && <ArrowBack absolute nav={nav ? nav : '/menu'} white={whiteArrow} />
         }
         <div className='flex flex-col justify-center items-center'>
-          <img src={`/assets/images/logo_${v}.png`} alt="logo" className="w-[150px]" />
-          {
-              namePage && <h1 className="text-md absolute bottom-2 m-0 text-primary font-bold font-futura">{namePage}</h1>
-          }
+          <img src={`/assets/images/logo_${v}.png`} alt="logo" className="w-[140px]" />
         </div>
     </div>
   )

@@ -36,6 +36,8 @@
         "secondary": "#F8F4ED",
         "tertiary": "#8C9C3F",
         "quaternary": "#555347",
+        "quinary": "#b9d056",
+        "senary": "#e0cc94",
         "lightgreen": "#bad056",
         "lightgray": "#555347",
         "lightgreen": "#BAD056",

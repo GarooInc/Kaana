@@ -1,11 +1,11 @@
 "use client";
 import React, { useState, useEffect } from 'react'
-import HeaderItem from '@/components/HeaderItem/HeaderItem'
 import FooterItem from '@/components/FooterItem/FooterItem'
 import TranslationsProvider from '@/components/TranslationsProvider'
 import initTranslations from '@/app/i18n'
 import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher';
 import ExperienceInnerItem from '@/components/ExperienceInnerItem/ExperienceInnerItem';
+import ArrowBack from '@/components/ArrowBack/ArrowBack';
 
 const namespaces = ['experience', 'header'];
 export default function Experience({ params: { locale, experienceId }}) {
@@ -26,14 +26,14 @@ export default function Experience({ params: { locale, experienceId }}) {
   return (
     <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
     <div className="page bg-white">
-        <div className='flex flex-col justify-center items-center w-full relative'>
-            <HeaderItem v={"v2"}/>
-            <div className='flex flex-col justify-center items-center pt-4 w-full'>
+        <ArrowBack absolute white/>
+        <div className='flex flex-col justify-center items-center w-full'>
+            <div className='flex flex-col justify-center items-center w-full'>
                 <ExperienceInnerItem experienceId={experienceId} />
             </div>
         </div>
         <LanguageSwitcher />
-        <FooterItem />
+        <FooterItem fixed/>
     </div>
     </TranslationsProvider>
   )

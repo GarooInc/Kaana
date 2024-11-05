@@ -104,7 +104,7 @@
 
 /* button nav */
 .button_nav_container{
-  @apply w-96 h-16 cursor-pointer;
+  @apply md:w-96 h-16 cursor-pointer w-full;
 }
 
 .button_nav{
@@ -135,7 +135,7 @@
 
 /* emergency hk fd */
 .info_container{
-  @apply bg-quaternary w-full pt-10 pb-20 md:pb-20 md:pt-10 flex flex-col justify-center items-center relative;
+  @apply w-full pt-10 pb-20 md:pb-20 md:pt-10 flex flex-col justify-center items-center relative;
 }
 
 /* cart item */
@@ -207,7 +207,7 @@
 
 /* front desk */
 .fontdesk_item{
-  @apply flex items-center flex-col;
+  @apply flex items-center flex-col gap-2;
 }
 
 .fontdesk_item_text{
