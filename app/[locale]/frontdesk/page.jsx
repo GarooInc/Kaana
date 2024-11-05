@@ -17,7 +17,7 @@ export default async function FrontDesk({ params: { locale }}) {
         <div className="page bg-quaternary">
             <HeaderItem v={"v5"} transparent whiteArrow/>
             <div className='info_container'>
-                <h2 className='italictiempos_title'>{t('frontdesk:title')}</h2>
+                <h2 className='italictiempos_title text-secondary'>{t('frontdesk:title')}</h2>
                         <div className='flex flex-col md:items-center justify-center gap-4 font-futura uppercase '>
                             <div className="fontdesk_item">
                                 <FaWhatsapp className="mr-2 text-secondary text-2xl" />

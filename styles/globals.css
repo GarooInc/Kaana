@@ -18,6 +18,10 @@
   pointer-events: none;
 }
 
+.icon_page {
+  @apply w-40 h-40;
+}
+
 .page{
   @apply flex min-h-screen flex-col items-center;
 }
@@ -35,7 +39,7 @@
 }
 
 .italictiempos_title{
-  @apply text-center text-4xl text-secondary font-playfair italic py-4;
+  @apply text-center text-4xl font-playfair italic py-4;
 }
 
 .tiempos_description{
@@ -212,4 +216,46 @@
 
 .fontdesk_item_text{
   @apply md:text-lg text-primary flex flex-col items-center justify-center;
+}
+
+/* food and drinks */
+
+.food_container{
+  @apply flex flex-col w-full;
+}
+
+.food_drinks_inner{
+  @apply flex flex-col w-full;
+}
+
+.food_drinks_img{
+  @apply w-full h-96 object-cover relative;
+}
+
+.food_drinks_info {
+  @apply flex flex-col p-10  bg-tertiary gap-4;
+}
+
+.food_drinks_title{
+  @apply md:text-4xl text-2xl leading-tight font-futura mt-2 text-secondary;
+}
+
+.food_drinks_description_container{
+  @apply flex flex-col gap-4 border-b border-secondary py-2;
+}
+
+.food_drinks_description{
+  @apply text-secondary md:text-lg text-sm font-tiempos leading-6 text-justify;
+}
+
+.food_drinks_icons_container{
+  @apply flex flex-col gap-2 justify-end items-start;
+}
+
+.food_drinks_text{
+  @apply text-secondary md:text-lg text-sm font-futura leading-none flex gap-2 font-medium;
+}
+
+.menu_btn{
+  @apply bg-quaternary text-secondary rounded-none px-8 py-2 mt-2 text-sm font-futura;
 }

@@ -34,25 +34,25 @@ const FoodDrinksItem = () => {
 
 
     return (
-        <div className="flex flex-col gap-10 w-full pb-10">
+        <div className="food_container">
             {foodDrinks.map((item, index) => (
-                <div key={index} className='flex flex-col w-full'>
-                    <img className="w-full h-96 object-cover relative" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.cover_img}?token=`} alt={item.name} />
-                    <div className='flex flex-col p-10  bg-secondary gap-4'>
-                        <h3 className="md:text-4xl text-2xl leading-tight font-futura mt-2 text-primary">{item.name}</h3>
-                        <div className='flex flex-col gap-4 border-b border-primary py-2'>
-                            <span className='text-black text-md font-tiempos leading-6 text-justify'>{item.description}</span>
+                <div key={index} className='food_drinks_inner'>
+                    <img className="food_drinks_img" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.cover_img}?token=`} alt={item.name} />
+                    <div className='food_drinks_info'>
+                        <h3 className="food_drinks_title">{item.name}</h3>
+                        <div className='food_drinks_description_container'>
+                            <span className='food_drinks_description'>{item.description}</span>
                         </div>
-                        <div className='flex flex-col gap-2 justify-end items-start'>
-                                <p className="text-black text-md font-futura leading-none flex gap-2 font-medium">
-                                    <MdLocationPin className="text-primary text-md" />
+                        <div className='food_drinks_icons_container'>
+                                <p className="food_drinks_text">
+                                    <MdLocationPin className="text-secondary text-md" />
                                     {item.location}
                                 </p>
-                                <p className="text-black text-md font-futuralight leading-none flex gap-2 font-medium">
-                                    <TbClockHour3Filled className="text-primary text-md" />
+                                <p className="food_drinks_text">
+                                    <TbClockHour3Filled className="text-secondary text-md" />
                                     {item.open} - {item.closes}
                                 </p>
-                                <button className='green_button' onClick={() => openPdf(item)}>Menú</button>
+                                <button className='menu_btn' onClick={() => openPdf(item)}>Menu</button>
                         </div>
                     </div>
                 </div>

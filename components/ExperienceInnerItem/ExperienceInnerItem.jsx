@@ -33,9 +33,9 @@ const ExperienceInnerItem = ({experienceId}) => {
     <div classnName="w-full">
         {
             loading ? <span className="loading loading-spinner loading-sm"></span>            : (
-                <div className='flex flex-col justify-center w-full items-stretch'>
-                    <div className='w-full relative flex flex-col justify-center items-center'>
-                        <img className="w-full object-cover" src={`${backendUrl}/api/files/${experience.collectionId}/${experience.id}/${experience.image_inner}?token=`} alt={experience.name} />
+                <div className='flex flex-col justify-center md:flex-row w-full items-stretch pb-20'>
+                    <div className='w-full relative flex flex-col justify-center items-center md:w-1/2'>
+                        <img className="w-full object-contain md:h-[600px]" src={`${backendUrl}/api/files/${experience.collectionId}/${experience.id}/${experience.image_inner}?token=`} alt={experience.name} />
                         <h3 className="w-60 absolute -bottom-4  text-white bg-primary p-2 font-futura text-lg flex justify-center items-center">{experience[`title_${currentLocale}`]}</h3>
                     </div>
                     <div className='p-10 bg-cream md:min-h-full md:w-1/2 flex flex-col justify-center'>
