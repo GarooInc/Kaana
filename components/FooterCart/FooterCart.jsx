@@ -7,7 +7,7 @@ import { useCart } from '@/contexts/CartContext';
 
 
 
-const FooterCart = () => {
+const FooterCart = ({transparent}) => {
     const router = useRouter()
     const [showCart, setShowCart] = useState(false)
     const { state } = useCart()
@@ -30,7 +30,7 @@ const FooterCart = () => {
                     )}
             </div>
         </div>
-        <FooterItem />
+        <FooterItem transparent={transparent}/>
         {showCart && <div className="absolute bottom-0 right-0 z-10">
             <CartItem showCart= {handleShowCart} />
         </div>}

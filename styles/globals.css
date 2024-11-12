@@ -47,7 +47,7 @@
 }
 
 .tiempos_description{
-  @apply text-black font-tiempos leading-none flex gap-2 font-medium text-lg;
+  @apply font-tiempos leading-none flex gap-2 font-medium text-lg;
 }
 
 .futura_description{

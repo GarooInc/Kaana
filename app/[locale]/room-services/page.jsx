@@ -13,17 +13,17 @@ export default async function RoomServices({ params: { locale }}) {
 
 return (
     <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
-        <div className="page bg-white relative pb-10">
+        <div className="page bg-quaternary relative pb-10">
             <div className="flex flex-col w-full items-center">
-                <HeaderItem v={"v2"} />
-                <h2 className='italictiempos_title'>{t('room-services:title')}</h2>
-                <span className='tiempos_description px-10 text-center'>
+                <HeaderItem v={"v5"} transparent whiteArrow/>
+                <h2 className='italictiempos_title text-white'>{t('room-services:title')}</h2>
+                <span className='font-futura px-10 text-center text-secondary'>
                     {t('room-services:text1')}
                 </span>
 
                 <ServicesItem room={true} collection={"room_services"}/>
             </div>
-            <FooterCart />
+            <FooterCart/>
         </div>
         <LanguageSwitcher />
     </TranslationsProvider>

@@ -49,14 +49,14 @@ const ServicesItem = ({ room, collection}) => {
     };
 
     return (
-        <div className="grid md:grid-cols-3 md:gap-10 grid-cols-1 gap-4 md:w-3/4 w-full px-10 pt-10 pb-20">
+        <div className="grid md:grid-cols-3 md:gap-10 grid-cols-2 gap-4 md:w-3/4 w-full pt-10 pb-20">
             {room ? (
                 data.map((item, index) => (
-                    <div key={index} className="px-2 pb-16 gap-2 flex flex-col relative" >
-                        <img className="adventure_img" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.image}?token=`} alt={item.name} />
-                        <h3 className="adventure_title">{item[`title_${currentLocale}`]}</h3>
-                        <p className="text-quaternary text-xs  leading-none font-futura font-bold"> £{item.price}</p>
-                        <button className='green_button w-[200px] absolute bottom-4' onClick={() => addToCart(item)}>Add to cart</button>
+                    <div key={index} className="pb-16 gap-2 flex flex-col relative px-4" >
+                        <img className="object-contain h-24" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.image}?token=`} alt={item.name} />
+                        <h3 className="text-secondary font-futura tracking-wider uppercase">{item[`title_${currentLocale}`]}</h3>
+                        <p className="text-primary text-xs  leading-none font-futura font-bold"> £{item.price}</p>
+                        <button className='green_button absolute bottom-4 uppercase' onClick={() => addToCart(item)}>Add</button>
                     </div>
                 ))
             ) : (
