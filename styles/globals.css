@@ -46,12 +46,18 @@
   @apply text-black font-tiempos leading-none flex gap-2 font-medium text-lg;
 }
 
+/* activities */
+
 .icon_activities{
-  @apply text-primary text-lg;
+  @apply text-tertiary text-lg;
 }
 
 .description_activities{
   @apply text-black text-xs font-futura;
+}
+
+.separator {
+  @apply border-l md:border-b md:border-l-0 border-quaternary px-2 py-2 h-full mt-2 text-sm font-futura flex justify-center items-center;
 }
 
 .experiences ul {

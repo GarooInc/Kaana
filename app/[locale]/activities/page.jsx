@@ -16,8 +16,8 @@ return (
     <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
         <div className="page bg-white relative">
             <div className="flex flex-col w-full items-center">
-                <HeaderItem v={"v4"} />
-                <div className="w-full  bg-secondary rounded-lg shadow p-10 my-10 font-futura text-black text-center flex flex-col justify-center items-center gap-4">
+                <HeaderItem v={"v6"} />
+                <div className="w-full rounded-lg  px-10 py-4 font-futura text-black text-center flex flex-col justify-center items-center gap-4">
                     <h2 className='italictiempos_title'>{t('activities:title')}</h2>
                     <span className='md:w-1/3 tiempos_description'>
                         {t('activities:desc')}
