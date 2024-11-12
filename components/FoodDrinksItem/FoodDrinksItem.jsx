@@ -13,7 +13,7 @@ const FoodDrinksItem = () => {
     pb.autoCancellation(false);
 
     const openPdf = (item) => {
-        window.open(`https://kaana.garooinc.com/kaana/api/files/${item.collectionId}/${item.id}/${item.menu_pdf}?token=`, '_blank');
+        window.open(`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.menu_pdf}?token=`);
     };
 
 
