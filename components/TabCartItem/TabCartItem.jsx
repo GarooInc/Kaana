@@ -1,9 +1,10 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PocketBase from 'pocketbase';
 import { useCart } from '@/contexts/CartContext';
 import CartNotification from '@/components/CartNotification/CartNotification';
 import { useTranslation } from 'react-i18next';
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const TabCartItem = ({ collection, noTags }) => {
     const [items, setItems] = useState([]);
@@ -52,21 +53,45 @@ const TabCartItem = ({ collection, noTags }) => {
     const uniqueTags_en = [...new Set(items?.map(item => item.tag_en))].sort((a, b) => b.localeCompare(a));
     const filteredItems = filter !== null ? items.filter(item => item.tag_es === filter || item.tag_en === filter) : items;
 
+    const scrollContainerRef = useRef(null);
+
+    const scrollLeft = () => {
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+        }
+    };
+
+    const scrollRight = () => {
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+    };
+
     return (
-        <div className='flex flex-col gap-10 w-full'>
+        <div className='flex flex-col gap-10 w-full pb-20'>
             {!noTags && 
-            <div className='flex gap-4 justify-center items-center md:flex-row md:flex-nowrap flex-wrap'>
-                {
-                    currentLocale === 'es' ? uniqueTags_es.map((tag, index) => (
-                        <button key={index} className={`button_line xl:w-[200px] md:w-[150px] w-[45%] h-16 ${filter === tag ? 'bg-secondary' : ''}`} onClick={() => setFilter(tag)}>
-                            {tag}
-                        </button>
-                    )) : uniqueTags_en.map((tag, index) => (
-                        <button key={index} className={`button_line xl:w-[200px] md:w-[150px] w-[45%] h-16 ${filter === tag ? 'bg-secondary' : ''}`} onClick={() => setFilter(tag)}>
-                            {tag}
-                        </button>
-                    ))
-                }
+            <div className="relative w-full flex p-4 justify-center items-center">
+                <div className="menu_arrow_left" onClick={scrollLeft}>
+                    <IoIosArrowBack className="text-gray-500" />
+                </div>
+                <div className="w-full overflow-x-auto" ref={scrollContainerRef}>
+                    <div className='items_container'>
+                        {
+                            currentLocale === 'es' ? uniqueTags_es.map((tag, index) => (
+                                <button key={index} className={`button_line ${filter === tag ? 'bg-secondary text-white' : 'text-secondary'}`} onClick={() => setFilter(tag)}>
+                                    {tag}
+                                </button>
+                            )) : uniqueTags_en.map((tag, index) => (
+                                <button key={index} className={`button_line ${filter === tag ? 'bg-secondary text-white' : 'text-secondary'}`} onClick={() => setFilter(tag)}>
+                                    {tag}
+                                </button>
+                            ))
+                        }
+                    </div>
+                </div>
+                <div className="menu_arrow_right" onClick={scrollRight}>
+                    <IoIosArrowForward className="text-gray-500" />
+                </div>
             </div>
             }
             <div className="adventure_container">

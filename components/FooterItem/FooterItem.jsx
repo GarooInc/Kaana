@@ -6,7 +6,7 @@ const FooterItem = ({transparent, logo, fixed}) => {
         {
           logo? <img src={`/assets/images/logo_${logo}.png`} alt="logo" className="w-[100px]" /> : 
           <div className='w-full flex justify-center items-center'>
-            <span className="text-md text-primary font-futura p-4">Kaana Resort & Residences</span>
+            <span className="text-md text-primary font-futura p-4">Kaana Resort & Spa</span>
           </div>
         }
     </div>
