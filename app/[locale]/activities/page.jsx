@@ -18,8 +18,8 @@ return (
             <div className="flex flex-col w-full items-center">
                 <HeaderItem v={"v6"} />
                 <div className="w-full rounded-lg  px-10 py-4 font-futura text-black text-center flex flex-col justify-center items-center gap-4">
-                    <h2 className='italictiempos_title'>{t('activities:title')}</h2>
-                    <span className='md:w-1/3 tiempos_description'>
+                    <h2 className='italictiempos_title text-quaternary'>{t('activities:title')}</h2>
+                    <span className='md:w-1/3 futura_description text-quaternary'>
                         {t('activities:desc')}
                     </span>
                 </div>
