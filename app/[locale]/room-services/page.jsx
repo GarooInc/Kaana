@@ -23,7 +23,7 @@ return (
 
                 <ServicesItem room={true} collection={"room_services"}/>
             </div>
-            <FooterCart/>
+            <FooterCart transparent/>
         </div>
         <LanguageSwitcher />
     </TranslationsProvider>
