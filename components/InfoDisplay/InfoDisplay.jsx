@@ -35,8 +35,10 @@ const InfoDisplay = ({ collection, colorlines, coloricon }) => {
                         <input type="checkbox" className="peer" />
                         <div className={`collapse-title md:text-lg text-sm font-medium font-futura uppercase peer-checked:collapse-open text-${colorlines}`}>
                             <div className='flex justify-between items-center'>
-                                {item[`title_${currentLocale}`]}
-                                <IoIosArrowForward className={`collapse-icon text-xl ${coloricon ? `text-${coloricon}` : ''}`} />
+                                <span className="flex-grow">{item[`title_${currentLocale}`]}</span>
+                                <div className="icon-wrapper" style={{ width: '24px', display: 'flex', justifyContent: 'center' }}>
+                                    <IoIosArrowForward className={`collapse-icon text-xl ${coloricon ? `text-${coloricon}` : ''}`} />
+                                </div>
                             </div>
                         </div>
                         <div className="collapse-content peer-checked:collapse-open">

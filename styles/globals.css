@@ -112,8 +112,12 @@
   background-attachment: fixed;
 }
 
-.infodisplay a{
+.infodisplay a {
   @apply underline text-tertiary;
+}
+
+.infodisplay strong {
+  @apply text-tertiary;
 }
 
 /* welcome */
