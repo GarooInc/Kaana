@@ -8,7 +8,7 @@ const HeaderItem = ({v, nav, principal,transparent, whiteArrow}) => {
           !principal && <ArrowBack absolute nav={nav ? nav : '/menu'} white={whiteArrow} />
         }
         <div className='flex flex-col justify-center items-center'>
-          <img src={`/assets/images/logo_${v}.png`} alt="logo" className="md:w-36 w-28" />
+          <img src={`/assets/images/logo_${v}.png`} alt="logo" className="h-24 max-w-36 object-contain" />
         </div>
     </div>
   )
