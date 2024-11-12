@@ -2,28 +2,85 @@ import React from 'react'
 import initTranslations from '@/app/i18n'
 import TranslationsProvider from '@/components/TranslationsProvider'
 import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher'
-import HeaderItem from '@/components/HeaderItem/HeaderItem'
-import TextItem from '@/components/TextItem/TextItem'
 import ButtonNav from '@/components/ButtonNav/ButtonNav'
+import ChatBubble from '@/components/ChatBubble/ChatBubble'
+import { HiInformationCircle } from "react-icons/hi2"
 
-const namespaces = ['letter', 'header']
+const namespaces = ['home', 'header']
 
-export default async function Home({ params: { locale }}) {
+export default async function Menu({ params: { locale }}) {
     const { t, resources } = await initTranslations(locale, namespaces)
+    const nav = [
+        {
+            title: t('home:nav1'),
+            link: '/welcome'
+        },
+        {
+            title: t('home:nav2'),
+            link: '/frontdesk'
+        },
+        {
+            title: t('home:nav3'),
+            link: '/housekeeping'
+        },
+        {
+            title: t('home:nav4'),
+            link: '/amenities'
+        },
+        {
+            title: t('home:nav5'),
+            link: '/food_drinks'
+        },
+        {
+            title: t('home:nav6'),
+            link: '/activities'
+        },
+        {
+            title: t('home:nav7'),
+            link: '/adventures'
+        },
+        {
+            title: t('home:nav13'),
+            link: '/spa'
+        },
+        {
+            title: t('home:nav12'),
+            link: '/room-services'
+        },
+        {
+            title: t('home:nav10'),
+            link: '/emergency'
+        },
+        {
+            title: t('home:nav11'),
+            link: '/faqs'
+        }
+    ]
 
     return (
         <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
-        <main className="page bg-secondary">
-            <HeaderItem v={"v4"} principal />
-            <div className='flex flex-col pt-10 pb-20 md:py-20 md:px-40 px-10 gap-4'>
-                <h1 className="principal_title m-0 flex gap-2 justify-center items-center md:flex-row flex-col">{t('letter:letter_title')}</h1>
-                <TextItem text={t('letter:letter_text')} color="quaternary" />
-                <div className='w-full flex justify-center items-center'>
-                    <ButtonNav title={t('letter:button')} link="/menu" className="border-b-2 border-quaternary" />
+        <main className="page bg-secondary pt-10 pb-20 md:py-10">
+            <div className='flex flex-col justify-center items-center w-full'>
+                <img src="/assets/images/logo_v3.png" alt="logo" className="w-[150px]" />
+                <div className="flex flex-col justify-center items-center py-10 w-full px-10">
+                    {
+                        nav.map((item, index) => (
+                            <ButtonNav 
+                                key={index} 
+                                title={item.title} 
+                                link={item.link} 
+                                className={index === nav.length - 1 ? 'border-b-2 border-quaternary' : ''}
+                            />
+                        ))
+                    }
                 </div>
             </div>
+            <ChatBubble />
         </main>
         <LanguageSwitcher />
+        <a href='https://garooinc.com/' className="fixed top-10 left-10">
+            <HiInformationCircle className="info-icon text-4xl text-tertiary" />
+        </a>
         </TranslationsProvider>
     );
 }

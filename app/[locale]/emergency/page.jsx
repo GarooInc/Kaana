@@ -15,8 +15,8 @@ export default async function HouseKeeping({ params: { locale }}) {
     return (
         <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
         <div className="page bg-secondary relative">
-            <HeaderItem v={"v4"} transparent/>
-            <div className='flex flex-col justify-center items-center '>
+            <div className='flex flex-col justify-center items-center'>
+                <HeaderItem v={"v4"} transparent/>
                 <h2 className='italictiempos_title text-quaternary'>{t('home:nav10')}</h2>
                 <InfoDisplay collection="Emergency" colorlines="quaternary" coloricon="tertiary"/>
                 <div className="flex flex-col justify-center items-center gap-4 md:w-3/4 px-10 w-full">
@@ -24,7 +24,7 @@ export default async function HouseKeeping({ params: { locale }}) {
                         Emergency Contacts
                     </div>
                 </div>
-                <div className='flex md:flex-row flex-col md:justify-center justify-start items-center md:p-10 md:mx-0 mx-auto pb-10 w-3/4 border-black border-b'>
+                <div className='flex md:flex-row flex-col md:justify-center justify-start items-center md:p-10 md:mx-0 mx-auto pb-12 w-3/4 border-black border-b'>
                     <div className='flex justify-start items-center md:h-48 w-full '>
                         <PhoneItem name="Kaana Resort" p1="+501 523-2435;" link1="tel:+5015232435" />
                         <PhoneItem name="Placencia Police" p1="+501 614-4247" link1="tel:+501 614-4247" />
