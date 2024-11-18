@@ -16,7 +16,7 @@ return (
     <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
         <div className="page bg-quinary">
             <HeaderItem v={"v7"} transparent/>
-            <h1 className="italictiempos_title text-secondary">Food & Drinks</h1>
+            <h1 className="italictiempos_title text-secondary">{t('food_drinks:title')}</h1>
             <FoodDrinksItem />
             <div className='flex justify-between items-center w-full p-4 bg-tertiary'>
                 <span className="font-futura text-secondary text-sm uppercase">RESORT & SPA</span>

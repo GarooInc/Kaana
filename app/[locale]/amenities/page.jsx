@@ -6,7 +6,7 @@ import AmenitiesItem from '@/components/AmenitiesItem/AmenitiesItem'
 import HeaderItem from '@/components/HeaderItem/HeaderItem'
 
 
-const namespaces = ['experiences', 'header']
+const namespaces = ['amenities', 'header']
 
 export default async function Amenities({ params: { locale }}) {
     const { t, resources } = await initTranslations(locale, namespaces)
@@ -16,7 +16,7 @@ return (
         <div className="page bg-tertiary">
             <HeaderItem v={"v8"} transparent whiteArrow/>
             <div className='info_container'>
-                <h1 className="principal_title italic">Amenities</h1>
+                <h1 className="principal_title italic">{t('amenities:title')}</h1>
                 <AmenitiesItem/>
             </div>
         </div>

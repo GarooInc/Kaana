@@ -16,7 +16,7 @@ return (
     <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
         <div className="page bg-secondary relative">
             <HeaderItem v={"v10"} transparent/>
-            <h1 className="italictiempos_title text-quaternary">Adventures</h1>
+            <h1 className="italictiempos_title text-quaternary">{t('adventures:title')}</h1>
             <TabCartItem collection={"adventures"} noTags />
             <FooterCart />
         </div>
