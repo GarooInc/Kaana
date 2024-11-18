@@ -245,7 +245,7 @@
 }
 
 .fontdesk_item_text{
-  @apply md:text-lg text-primary flex flex-col items-center justify-center;
+  @apply md:text-lg text-primary flex flex-col items-center text-center justify-center;
 }
 
 /* food and drinks */

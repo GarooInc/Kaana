@@ -102,7 +102,7 @@ const TabCartItem = ({ collection, noTags }) => {
                             <h3 className="adventure_title">{item[`title_${currentLocale}`]}</h3>
                             <p className="text-black text-md font-futura leading-6 tracking-tight" dangerouslySetInnerHTML={{ __html: item[`desc_${currentLocale}`] }}></p>
                             <p className="text-primary text-xs  leading-none font-futura font-bold"> £{item.price}</p>
-                            <button className='green_button w-[200px] absolute bottom-4 right-4' onClick={() => addToCart(item)}>Request a reservation</button>
+                            <button className='green_button w-[200px] absolute bottom-4 right-4' onClick={() => addToCart(item)}> {currentLocale === 'es' ? 'Solicitar' : 'Request'}</button>
                         </div>
                     </div>
                 ))}

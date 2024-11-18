@@ -16,7 +16,7 @@ return (
         <div className="page bg-secondary relative">
             <div className="flex flex-col w-full items-center">
                 <HeaderItem v={"v4"} transparent/>
-                <h2 className='italictiempos_title uppercase text-quaternary'>{t('header:faqs')}</h2>
+                <h2 className='italictiempos_title text-quaternary'>{t('faqs:title')}</h2>
                 <div className='flex flex-col justify-center items-center gap-4 md:w-3/4 pb-10'>
                     <InfoDisplay collection={"faqs"} colorlines="quaternary" coloricon="tertiary"/>
                 </div>

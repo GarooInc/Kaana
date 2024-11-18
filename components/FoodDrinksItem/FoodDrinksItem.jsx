@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import PocketBase from 'pocketbase';
 import { MdLocationPin } from "react-icons/md";
 import { TbClockHour3Filled } from "react-icons/tb";
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -15,7 +16,9 @@ const FoodDrinksItem = () => {
     const openPdf = (item) => {
         window.open(`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.menu_pdf}?token=`);
     };
-
+    
+    const { i18n } = useTranslation();
+    const currentLocale = i18n.language;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,6 +34,7 @@ const FoodDrinksItem = () => {
 
         fetchData();
     }, []);
+    
 
 
     return (
@@ -39,14 +43,14 @@ const FoodDrinksItem = () => {
                 <div key={index} className='food_drinks_inner'>
                     <img className="food_drinks_img" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.cover_img}?token=`} alt={item.name} />
                     <div className='food_drinks_info'>
-                        <h3 className="food_drinks_title">{item.name}</h3>
+                        <h3 className="food_drinks_title">{item[`name_${currentLocale}`]}</h3>
                         <div className='food_drinks_description_container'>
-                            <span className='food_drinks_description'>{item.description}</span>
+                            <span className='food_drinks_description'>{item[`description_${currentLocale}`]}</span>
                         </div>
                         <div className='food_drinks_icons_container'>
                                 <p className="food_drinks_text">
                                     <MdLocationPin className="text-secondary text-md" />
-                                    {item.location}
+                                    {item[`location_${currentLocale}`]}
                                 </p>
                                 <p className="food_drinks_text">
                                     <TbClockHour3Filled className="text-secondary text-md" />
