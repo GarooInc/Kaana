@@ -18,20 +18,20 @@ export default async function FrontDesk({ params: { locale }}) {
             <HeaderItem v={"v5"} transparent whiteArrow/>
             <div className='info_container'>
                 <h2 className='italictiempos_title text-secondary'>{t('frontdesk:title')}</h2>
-                        <div className='flex flex-col md:items-center justify-center gap-4 font-futura uppercase px-10'>
+                        <div className='flex flex-col md:items-center justify-center gap-4 font-futura px-10'>
                             <div className="fontdesk_item">
                                 <FaWhatsapp className="mr-2 text-secondary text-2xl" />
-                                <a href="https://wa.me/5016144247" className="fontdesk_item_text">{t('frontdesk:whatsapp')} <span>+501 614-4247</span></a>
+                                <a href="https://wa.me/5016144247" className="fontdesk_item_text"><span className='uppercase'>{t('frontdesk:whatsapp')} </span><span> +501 614-4247</span></a>
                             </div>
                             <div className="fontdesk_item">
                                 <FaPhone className="mr-2 text-secondary text-2xl" />
-                                <a href="tel:+501 614-4247" className="fontdesk_item_text">{t('frontdesk:phone')} <span>+501 614-4247</span></a>
+                                <a href="tel:+501 614-4247" className="fontdesk_item_text"><span className='uppercase'>{t('frontdesk:phone')} </span><span> +501 614-4247</span></a>
                             </div>
                             <div className="fontdesk_item">
                                 <FaWifi className="mr-2 text-secondary text-2xl" />
-                                <span className="fontdesk_item_text">WiFi</span>
-                                <span className="fontdesk_item_text">{t('frontdesk:wifi_name')}: Kanna Kaana Guest WiFi</span>
-                                <span className="fontdesk_item_text">{t('frontdesk:wifi_password')}: kaana2022</span>
+                                <span className="fontdesk_item_text uppercase">WiFi</span>
+                                <span className="fontdesk_item_text"><span className='uppercase'>{t('frontdesk:wifi_name')}: Kanna Guest WiFi</span></span>
+                                <span className="fontdesk_item_text"><span className='uppercase'>{t('frontdesk:wifi_password')}: <span className='lowercase'>kaana2022</span></span></span>
                             </div>
                         </div>
                 <InfoDisplay collection="Front_Desk" colorlines="white" coloricon="primary" />
