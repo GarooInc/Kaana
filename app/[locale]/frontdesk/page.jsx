@@ -31,7 +31,10 @@ export default async function FrontDesk({ params: { locale }}) {
                                 <FaWifi className="mr-2 text-secondary text-2xl" />
                                 <span className="fontdesk_item_text uppercase">WiFi</span>
                                 <span className="fontdesk_item_text"><span className='uppercase'>{t('frontdesk:wifi_name')}: Kanna Guest WiFi</span></span>
-                                <span className="fontdesk_item_text"><span className='uppercase'>{t('frontdesk:wifi_password')}: <span className='lowercase'>kaana2022</span></span></span>
+                                <div className='flex justify-center items-center gap-2'>
+                                    <span className="fontdesk_item_text"><span className='uppercase'>{t('frontdesk:wifi_password')}:</span></span>
+                                    <span className='fontdesk_item_text'>Belizejungle</span>
+                                </div>
                             </div>
                         </div>
                 <InfoDisplay collection="Front_Desk" colorlines="white" coloricon="primary" />
