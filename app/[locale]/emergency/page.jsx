@@ -19,7 +19,7 @@ export default async function HouseKeeping({ params: { locale }}) {
                 <HeaderItem v={"v4"} transparent/>
                 <h2 className='italictiempos_title text-quaternary'>{t('emergency:title')}</h2>
                 <InfoDisplay collection="Emergency" colorlines="quaternary" coloricon="tertiary"/>
-                <div className="flex flex-col justify-center items-center gap-4 md:w-3/4 px-10 w-full h-60 md:h-full md:pb-0 pb-20">
+                <div className="flex flex-col justify-center items-center gap-4 md:w-3/4 px-10 w-full md:h-full md:pb-0 pb-28">
                     <div className='collapse-title md:text-lg text-sm font-medium font-futura uppercase peer-checked:collapse-open text-quaternary py-0'>
                         Emergency Contacts
                     </div>
