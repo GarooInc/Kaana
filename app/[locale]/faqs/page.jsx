@@ -21,7 +21,7 @@ return (
                     <InfoDisplay collection={"faqs"} colorlines="quaternary" coloricon="tertiary"/>
                 </div>
             </div>
-            <FooterItem transparent/>
+            <FooterItem transparent logo={"v11"}/>
         </div>
         <LanguageSwitcher />
     </TranslationsProvider>

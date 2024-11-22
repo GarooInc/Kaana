@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const TabCartItem = ({ collection, noTags }) => {
+    const [selected, setSelected] = useState(0);
     const [items, setItems] = useState([]);
     const [filter, setFilter] = useState(null);
     const { t, i18n } = useTranslation();
@@ -102,7 +103,9 @@ const TabCartItem = ({ collection, noTags }) => {
                         <div className='flex flex-col gap-4  w-full px-4'>
                             <h3 className="adventure_title">{item[`title_${currentLocale}`]}</h3>
                             <p className="text-black text-md font-futura leading-6 tracking-tight" dangerouslySetInnerHTML={{ __html: item[`desc_${currentLocale}`] }}></p>
-                            <p className="text-primary text-xs  leading-none font-futura font-bold">${item.price}</p>
+                            <p className="text-primary text-xs  leading-none font-futura font-bold">
+                                { collection === 'spa' ? (currentLocale === 'es' ? 'Desde' : 'From') : ''} ${item.price}
+                            </p>
                             <button className='green_button w-[200px] absolute bottom-4 right-4' onClick={() => addToCart(item)}> {currentLocale === 'es' ? 'Solicitar información' : 'Request information'}</button>
                         </div>
                     </div>

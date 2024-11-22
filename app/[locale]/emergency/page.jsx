@@ -24,7 +24,7 @@ export default async function HouseKeeping({ params: { locale }}) {
                         Emergency Contacts
                     </div>
                 </div>
-                <div className='flex md:flex-row flex-col md:justify-center justify-start items-center md:p-10 md:mx-0 mx-auto pb-12 w-3/4 border-black border-b'>
+                <div className='flex md:flex-row flex-col md:justify-center justify-start items-center md:p-10 md:mx-0 mx-auto w-3/4 border-black border-b'>
                     <div className='flex justify-start items-center md:h-48 w-full '>
                         <PhoneItem name={t('emergency:phone1')} p1="+501 803-2038;" link1="tel:+501 803-2038" />
                         <PhoneItem name={t('emergency:phone2')} p1="+501 804-2022" link1="tel:+501 804-2022" />
@@ -35,7 +35,7 @@ export default async function HouseKeeping({ params: { locale }}) {
                     </div>
                 </div>
             </div>
-            <FooterItem  transparent />
+            <FooterItem  transparent logo={"v11"}/>
         </div>
         <LanguageSwitcher />
         </TranslationsProvider>
