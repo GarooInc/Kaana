@@ -1,19 +1,14 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
 import PocketBase from 'pocketbase';
-import { useCart } from '@/contexts/CartContext';
-import CartNotification from '@/components/CartNotification/CartNotification';
 import { useTranslation } from 'react-i18next';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const TabCartItem = ({ collection, noTags }) => {
     const [items, setItems] = useState([]);
-    const [notification, setNotification] = useState(false);
-    const [actualProduct, setActualProduct] = useState({});
     const [filter, setFilter] = useState(null);
     const { t, i18n } = useTranslation();
     const currentLocale = i18n.language;
-    const { dispatch } = useCart();
     const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
     const pb = new PocketBase(`${backendUrl}`);
@@ -38,21 +33,27 @@ const TabCartItem = ({ collection, noTags }) => {
         const updatedItem = {
             ...item,
             Title: item[`title_${currentLocale}`],
-            Variant: "",
+            Variant: item.variant || "",
             Price: item.price,
         };
-        dispatch({ type: 'ADD_ITEM', payload: updatedItem });
-        setNotification(true);
-        setActualProduct(updatedItem);
-        setTimeout(() => {
-            setNotification(false);
-        }, 3000);
+    
+        const message = currentLocale === 'es' 
+            ? `Hola, me gustaría solicitar información sobre ${updatedItem.Title} - ${updatedItem.Variant} ($${updatedItem.Price}) por favor.`
+            : `Hello, I would like to request information about ${updatedItem.Title} - ${updatedItem.Variant} ($${updatedItem.Price}) please.`;
+    
+        const encodedMessage = encodeURIComponent(message);
+    
+        const phoneNumber = "5016144247";
+    
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+        window.open(whatsappUrl, "_blank");
     };
+    
 
     const uniqueTags_es = [...new Set(items?.map(item => item.tag_es))].sort((a, b) => b.localeCompare(a));
     const uniqueTags_en = [...new Set(items?.map(item => item.tag_en))].sort((a, b) => b.localeCompare(a));
     const filteredItems = filter !== null ? items.filter(item => item.tag_es === filter || item.tag_en === filter) : items;
-
     const scrollContainerRef = useRef(null);
 
     const scrollLeft = () => {
@@ -101,12 +102,11 @@ const TabCartItem = ({ collection, noTags }) => {
                         <div className='flex flex-col gap-4  w-full px-4'>
                             <h3 className="adventure_title">{item[`title_${currentLocale}`]}</h3>
                             <p className="text-black text-md font-futura leading-6 tracking-tight" dangerouslySetInnerHTML={{ __html: item[`desc_${currentLocale}`] }}></p>
-                            <p className="text-primary text-xs  leading-none font-futura font-bold"> £{item.price}</p>
-                            <button className='green_button w-[200px] absolute bottom-4 right-4' onClick={() => addToCart(item)}> {currentLocale === 'es' ? 'Solicitar' : 'Request'}</button>
+                            <p className="text-primary text-xs  leading-none font-futura font-bold">${item.price}</p>
+                            <button className='green_button w-[200px] absolute bottom-4 right-4' onClick={() => addToCart(item)}> {currentLocale === 'es' ? 'Solicitar información' : 'Request information'}</button>
                         </div>
                     </div>
                 ))}
-                {notification && <CartNotification productName={actualProduct[`title_${currentLocale}`]} productImage={`${backendUrl}/api/files/${actualProduct.collectionId}/${actualProduct.id}/${actualProduct.image}?token=`} productVariant={actualProduct.Variant} />}
             </div>
         </div>
     );

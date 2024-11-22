@@ -40,7 +40,7 @@ const ActivitiesItem = () => {
             activities.map((item, index) => (
                 <div 
                 key={index} 
-                className={`bg-white px-2 py-4 gap-2 flex md:flex-col relative cursor-pointer 
+                className={`bg-secondary px-2 py-4 gap-2 flex md:flex-col relative cursor-pointer 
                 ${(index + 1) % 4 !== 0 ? 'md:border-r md:border-black border-b border-black' : ''} 
                 ${(index + 1) % 2 !== 0 ? 'md:border-r md:border-black' : ''}`}>
                     <div className='flex justify-center w-full items-center'>

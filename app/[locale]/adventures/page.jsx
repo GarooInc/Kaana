@@ -3,7 +3,7 @@ import initTranslations from '@/app/i18n'
 import TranslationsProvider from '@/components/TranslationsProvider'
 import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher'
 import HeaderItem from '@/components/HeaderItem/HeaderItem'
-import FooterCart from '@/components/FooterCart/FooterCart'
+import FooterItem from '@/components/FooterItem/FooterItem'
 import TabCartItem from '@/components/TabCartItem/TabCartItem'
 
 
@@ -18,7 +18,7 @@ return (
             <HeaderItem v={"v10"} transparent/>
             <h1 className="italictiempos_title text-quaternary">{t('adventures:title')}</h1>
             <TabCartItem collection={"adventures"} noTags />
-            <FooterCart />
+            <FooterItem transparent logo={"v7"}/>
         </div>
         <LanguageSwitcher />
     </TranslationsProvider>

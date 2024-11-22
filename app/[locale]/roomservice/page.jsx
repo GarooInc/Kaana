@@ -1,7 +1,6 @@
 import React from 'react'
 import initTranslations from '@/app/i18n'
 import TranslationsProvider from '@/components/TranslationsProvider'
-import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher'
 import Menu from '@/components/Menu/Menu'
 import HeaderItem from '@/components/HeaderItem/HeaderItem'
 import FooterCart from '@/components/FooterCart/FooterCart'

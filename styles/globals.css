@@ -51,7 +51,7 @@
 }
 
 .futura_description{
-  @apply font-futura leading-none flex gap-2 font-medium text-lg;
+  @apply font-futura leading-6 flex gap-2 font-medium text-lg;
 }
 
 /* activities */
@@ -69,7 +69,7 @@
 }
 
 .activities_container{
-  @apply grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 grid-flow-row-dense auto-rows-auto px-10 pt-10 pb-20;
+  @apply grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 grid-flow-row-dense auto-rows-auto px-10 pt-10 pb-20 w-full md:gap-0;
 }
 
 .activities_inner_container{
@@ -151,7 +151,7 @@
 
 /* adventure */
 .adventure_container{
-  @apply grid grid-cols-1 gap-4 md:gap-0 xl:grid-cols-4 grid-flow-row-dense auto-rows-auto md:px-10 pb-20 w-full;
+  @apply grid grid-cols-1 gap-4 md:gap-0 xl:grid-cols-4 grid-flow-row-dense auto-rows-auto md:px-10 pb-10 w-full;
 }
 
 .adventure_img{
@@ -169,7 +169,7 @@
 
 /* emergency hk fd */
 .info_container{
-  @apply w-full pt-10 pb-20 md:pb-20 md:pt-10 flex flex-col justify-center items-center relative;
+  @apply w-full pt-4 pb-20 md:pb-20 md:pt-10 flex flex-col justify-center items-center relative;
 }
 
 /* cart item */
@@ -288,4 +288,9 @@
 
 .menu_btn{
   @apply bg-quaternary text-secondary rounded-none px-8 py-2 mt-2 text-sm font-futura;
+}
+
+/* phone item */
+.phone_text{
+  @apply md:text-sm text-xs text-primary font-futura;
 }

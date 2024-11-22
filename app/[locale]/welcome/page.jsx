@@ -25,10 +25,10 @@ return (
             <div className='welcome_container'>
                 <p>{t('welcome:subtitle')}</p>
                 <h1 className="principal_title">{t('welcome:title')}</h1>
-                <span className="text-secondary text-md font-futura text-center leading-6 tracking-wide my-4">
+                <span className="text-secondary text-md font-futura text-justify leading-6 tracking-wide my-4">
                     {t('welcome:content')}
                 </span>
-                <img className="w-40" src="/assets/images/logo_luxury.png" alt="luxury logo"/>
+                <img className="md:w-40 w-28" src="/assets/images/logo_luxury.png" alt="luxury logo"/>
             </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { IoLanguage } from "react-icons/io5";
 import i18nConfig from '@/i18nConfig'
 
+
 const LanguageSwitcher = () => {
     const { i18n } = useTranslation();
   const currentLocale = i18n.language;
@@ -41,12 +42,17 @@ const LanguageSwitcher = () => {
     return (
         <div className='fixed top-2 right-0 p-4 dropdown'>
           <div tabIndex={0} role="button" className="m-4 bg-transparent">
-            <IoLanguage className="text-tertiary text-4xl" />
+            {
+              currentLocale === 'en' ? 
+              <button onClick={handleChange} value={'es'}
+                className="text-tertiary font-futura text-lg bg-secondary rounded-md px-2 w-10">
+                ES</button> :
+              <button onClick={handleChange}  value={'en'}
+                className="text-tertiary font-futura text-lg bg-secondary rounded-md px-2 w-10">
+                EN
+              </button>
+            }
           </div>
-          <select onChange={handleChange} value={currentLocale} tabIndex={0} className="dropdown-content card card-compact bg-primary text-white z-[1] w-20 p-2 shadow">
-              <option value="en">EN</option>
-              <option value="es">ES</option>
-          </select>
         </div>
     )
 }

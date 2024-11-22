@@ -70,7 +70,7 @@ const Menu = () => {
                         <label className="text-sm font-futura text-black">Variants</label>
                         <select className="bg-white font-futura text-xs" onChange={(e) => selectVariant(e, item.id)}>
                         {Object.entries(item.Variants).map(([key, value]) => (
-                            <option key={key} value={value}>{`${key} - £${value}`}</option>
+                            <option key={key} value={value}>{`${key} - $${value}`}</option>
                         ))}
                         </select>
                     </div>

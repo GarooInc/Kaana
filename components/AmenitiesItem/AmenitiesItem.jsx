@@ -38,7 +38,7 @@ const AmenitiesItem = () => {
                     onClick={() => router.push(`/experience/${item.id}`)} style={{backgroundColor: item.background_color}}>
                     <img className="w-full md:h-60 h-32  object-cover" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.image}?token=`} alt={item.name} />
                     <div className='flex justify-center items-center'>
-                        <h3 className={`text-base leading-tight font-futura mt-2 uppercase`} style={{color: item.text_color}}>{item[`title_${currentLocale}`]}</h3>
+                        <h3 className={`text-base leading-tight font-futura mt-2 uppercase text-center`} style={{color: item.text_color}}>{item[`title_${currentLocale}`]}</h3>
                     </div>
                 </div>
             ))

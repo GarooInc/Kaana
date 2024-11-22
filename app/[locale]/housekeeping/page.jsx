@@ -15,7 +15,6 @@ export default async function HouseKeeping({ params: { locale }}) {
         <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
         <div className="page bg-secondary">
             <HeaderItem v={"v6"} transparent/>
-            <img className='icon_page' src="/assets/images/housekeeping/icon.png" alt="Housekeeping" />
             <div className='info_container'>
                 <h2 className='italictiempos_title text-quaternary'>{t('home:nav3')}</h2>
                 <InfoDisplay collection="Housekeeping" colorlines="quaternary" coloricon="tertiary" />

@@ -25,12 +25,12 @@ export default async function FrontDesk({ params: { locale }}) {
                             </div>
                             <div className="fontdesk_item">
                                 <FaPhone className="mr-2 text-secondary text-2xl" />
-                                <a href="tel:+501 614-4247" className="fontdesk_item_text"><span className='uppercase'>{t('frontdesk:phone')} </span><span> +501 614-4247</span></a>
+                                <a href="tel:+501 824 3350" className="fontdesk_item_text"><span className='uppercase'>{t('frontdesk:phone')} </span><span> +501 824-3350</span></a>
                             </div>
                             <div className="fontdesk_item">
                                 <FaWifi className="mr-2 text-secondary text-2xl" />
                                 <span className="fontdesk_item_text uppercase">WiFi</span>
-                                <span className="fontdesk_item_text"><span className='uppercase'>{t('frontdesk:wifi_name')}: Kanna Guest WiFi</span></span>
+                                <span className="fontdesk_item_text"><span className='uppercase'>{t('frontdesk:wifi_name')}: Ka'ana Guest WiFi</span></span>
                                 <div className='flex justify-center items-center gap-2'>
                                     <span className="fontdesk_item_text"><span className='uppercase'>{t('frontdesk:wifi_password')}:</span></span>
                                     <span className='fontdesk_item_text'>Belizejungle</span>
@@ -38,7 +38,7 @@ export default async function FrontDesk({ params: { locale }}) {
                             </div>
                         </div>
                 <InfoDisplay collection="Front_Desk" colorlines="white" coloricon="primary" />
-                <FooterItem  transparent/>
+                <FooterItem  transparent logo={"v9"}/>
             </div>
         </div>
         <LanguageSwitcher />

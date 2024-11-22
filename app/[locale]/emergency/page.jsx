@@ -26,12 +26,12 @@ export default async function HouseKeeping({ params: { locale }}) {
                 </div>
                 <div className='flex md:flex-row flex-col md:justify-center justify-start items-center md:p-10 md:mx-0 mx-auto pb-12 w-3/4 border-black border-b'>
                     <div className='flex justify-start items-center md:h-48 w-full '>
-                        <PhoneItem name={t('emergency:phone1')} p1="+501 523-2435;" link1="tel:+5015232435" />
-                        <PhoneItem name={t('emergency:phone2')} p1="+501 614-4247" link1="tel:+501 614-4247" />
+                        <PhoneItem name={t('emergency:phone1')} p1="+501 803-2038;" link1="tel:+501 803-2038" />
+                        <PhoneItem name={t('emergency:phone2')} p1="+501 804-2022" link1="tel:+501 804-2022" />
                     </div>
                     <div className='flex  justify-start items-center md:h-48 w-full'>
-                        <PhoneItem name={t('emergency:phone3')} p1="+501 503-3022" link1="tel:+5015033022" />
-                        <PhoneItem name={t('emergency:phone4')} p1="+501 523- 3328" link1="tel:+5015233328" />
+                        <PhoneItem name={t('emergency:phone3')} p1="+501 824-2066" link1="tel:+501 824-2066" />
+                        <PhoneItem name={t('emergency:phone4')} p1="+501 635-0678" link1="tel:+501 635-0678" />
                     </div>
                 </div>
             </div>
