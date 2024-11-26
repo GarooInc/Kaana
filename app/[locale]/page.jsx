@@ -6,15 +6,11 @@ import ButtonNav from '@/components/ButtonNav/ButtonNav'
 import ChatBubble from '@/components/ChatBubble/ChatBubble'
 import { HiInformationCircle } from "react-icons/hi2"
 
-const namespaces = ['home', 'header']
+const namespaces = ['home', 'welcome']
 
 export default async function Menu({ params: { locale }}) {
     const { t, resources } = await initTranslations(locale, namespaces)
     const nav = [
-        {
-            title: t('home:nav1'),
-            link: '/welcome'
-        },
         {
             title: t('home:nav2'),
             link: '/frontdesk'
@@ -58,7 +54,10 @@ export default async function Menu({ params: { locale }}) {
         <main className="page bg-secondary pt-10 pb-20 md:py-10">
             <div className='flex flex-col justify-center items-center w-full'>
                 <img src="/assets/images/logo_v3.png" alt="logo" className="w-[150px]" />
-                <div className="flex flex-col justify-center items-center py-10 w-full px-10">
+                <div className="flex flex-col justify-center items-center py-4 w-full px-10">
+                    <span className="text-primary text-md font-futura text-justify leading-6 tracking-wide my-4 py-4">
+                        {t('welcome:content')}
+                    </span>
                     {
                         nav.map((item, index) => (
                             <ButtonNav 

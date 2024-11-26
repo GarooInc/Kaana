@@ -2,20 +2,16 @@
 import React, { useState, useEffect } from 'react';
 import PocketBase from 'pocketbase';
 import { useTranslation } from 'react-i18next';
-import { useCart } from '@/contexts/CartContext';
-import CartNotification from '@/components/CartNotification/CartNotification';
 
 const ServicesItem = ({ room, collection}) => {
     const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
     const [data, setData] = useState([]);
-    const [notification, setNotification] = useState(false);
     const [actualProduct, setActualProduct] = useState({});
     const pb = new PocketBase(`${backendUrl}`);
     pb.autoCancellation(false);
 
     const { i18n } = useTranslation();
     const currentLocale = i18n.language;
-    const { dispatch } = useCart();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -38,23 +34,29 @@ const ServicesItem = ({ room, collection}) => {
             Variant: "",
             Price: item.price || 0,
         };
-        setNotification(true);
-        setActualProduct(updatedItem);
-        console.log(updatedItem);
-        setTimeout(() => {
-            setNotification(false);
-        }, 3000);
+        
+        const message = currentLocale === 'es' 
+            ? `Hola, quiero solicitar ${updatedItem.Title} por favor.`
+            : `Hello, I would like to request ${updatedItem.Title} please.`;
 
-        dispatch({ type: 'ADD_ITEM', payload: updatedItem });
+        const encodedMessage = encodeURIComponent(message);
+
+        const phoneNumber = "5016144247";
+
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+        window.open(whatsappUrl, "_blank");
+
+        setActualProduct(updatedItem);
     };
 
     return (
-        <div className="grid md:grid-cols-3 md:gap-10 grid-cols-2 gap-4 md:w-3/4 w-full pt-10 pb-20">
+        <div className="grid md:grid-cols-3 md:gap-10 grid-cols-2 gap-4 md:w-3/4 w-full pt-10 pb-20 px-10">
             {room ? (
                 data.map((item, index) => (
-                    <div key={index} className="pb-16 gap-2 flex flex-col relative px-4" >
+                    <div key={index} className="pb-16 gap-2 flex flex-col relative" >
                         <img className="object-contain h-24" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.image}?token=`} alt={item.name} />
-                        <h3 className="text-secondary font-futura tracking-wider uppercase">{item[`title_${currentLocale}`]}</h3>
+                        <h3 className="text-primary font-futura tracking-wider uppercase">{item[`title_${currentLocale}`]}</h3>
                         <p className="text-primary text-xs  leading-none font-futura font-bold">${item.price}</p>
                         <button className='green_button absolute bottom-4 uppercase' onClick={() => addToCart(item)}>Add</button>
                     </div>
@@ -69,7 +71,6 @@ const ServicesItem = ({ room, collection}) => {
                     </div>
                 ))
             )}
-            {notification && <CartNotification productName={actualProduct.Title} productImage={`${backendUrl}/api/files/${actualProduct.collectionId}/${actualProduct.id}/${actualProduct.image}?token=`} productVariant={actualProduct.Variant} />}
         </div>
     );
 }
