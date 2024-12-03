@@ -5,6 +5,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher'
 import ButtonNav from '@/components/ButtonNav/ButtonNav'
 import ChatBubble from '@/components/ChatBubble/ChatBubble'
 import { HiInformationCircle } from "react-icons/hi2"
+import { renderTitle } from '@/hooks/useFormattedText'
 
 const namespaces = ['home', 'welcome']
 
@@ -55,8 +56,8 @@ export default async function Menu({ params: { locale }}) {
             <div className='flex flex-col justify-center items-center w-full'>
                 <img src="/assets/images/logo_v3.png" alt="logo" className="w-[150px]" />
                 <div className="flex flex-col justify-center items-center py-4 w-full px-10">
-                    <span className="text-primary text-md font-futura text-justify leading-6 tracking-wide my-4 py-4">
-                        {t('welcome:content')}
+                    <span className="text-primary text-md font-futura text-center leading-6 tracking-wide my-4 py-4">
+                        {renderTitle(t('welcome:content'))}
                     </span>
                     {
                         nav.map((item, index) => (
@@ -68,6 +69,10 @@ export default async function Menu({ params: { locale }}) {
                             />
                         ))
                     }
+                </div>
+                <div className='flex justify-center items-center w-full gap-4 py-4'>
+                    <img src="/assets/images/welcome/sublogo1.png" alt="sublogo1" className="w-[100px]" />
+                    <img src="/assets/images/welcome/sublogo2.png" alt="sublogo2" className="w-[100px]" />
                 </div>
             </div>
             <ChatBubble />

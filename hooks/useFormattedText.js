@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-const useFormattedText = (title) => {
+export const useFormattedText = (title) => {
   const formattedTitle = useMemo(() => {
     if (!title) return null; // Verificar si title es undefined o null
 
@@ -17,4 +17,18 @@ const useFormattedText = (title) => {
   return formattedTitle;
 };
 
-export default useFormattedText;
+export const renderTitle = (title) => {
+  if (!title) return null;
+  return title.split(/(<strong>|<\/strong>)/).map((part, index) => {
+      if (part === "<strong>" || part === "</strong>") {
+          return null; 
+      }
+      const isStyled = title.includes(`<strong>${part}</strong>`);
+      return (
+          <span key={index} className={isStyled ? 'font-futura font-bold uppercase' : 'uppercase tracking-wider'}>
+              {part}
+          </span>
+      );
+  });
+};
+
