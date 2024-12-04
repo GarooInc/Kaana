@@ -15,7 +15,7 @@ export default async function FrontDesk({ params: { locale }}) {
     return (
         <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
         <div className="page bg-quaternary">
-            <HeaderItem v={"v4"} transparent whiteArrow/>
+            <HeaderItem v={"v13"} transparent whiteArrow/>
             <div className='info_container'>
                 <h2 className='italictiempos_title text-secondary'>{t('frontdesk:title')}</h2>
                         <div className='flex flex-col md:items-center justify-center gap-4 font-futura px-10'>

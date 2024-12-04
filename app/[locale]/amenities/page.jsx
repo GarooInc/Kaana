@@ -15,7 +15,7 @@ export default async function Amenities({ params: { locale }}) {
 return (
     <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
         <div className="page bg-tertiary">
-            <HeaderItem v={"v4"} transparent whiteArrow/>
+            <HeaderItem v={"v12"} transparent whiteArrow/>
             <div className='info_container'>
                 <h1 className="principal_title italic">{t('amenities:title')}</h1>
                 <AmenitiesItem/>
