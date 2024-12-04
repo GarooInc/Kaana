@@ -15,12 +15,12 @@ export default async function HouseKeeping({ params: { locale }}) {
     return (
         <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
         <div className="page bg-secondary">
-            <HeaderItem v={"v10"} transparent/>
+            <HeaderItem v={"v3"} transparent/>
             <div className='info_container'>
                 <h2 className='italictiempos_title text-quaternary'>{t('home:nav3')}</h2>
                 <InfoDisplay collection="Housekeeping" colorlines="quaternary" coloricon="tertiary" />
                 <ServicesItem room={true} collection={"room_services"}/>
-                <FooterItem  transparent logo={"v7"}/>
+                <FooterItem  transparent logo={"v11"}/>
             </div>
         </div>
         <LanguageSwitcher />
