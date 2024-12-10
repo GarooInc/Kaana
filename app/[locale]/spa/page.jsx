@@ -3,8 +3,10 @@ import initTranslations from '@/app/i18n'
 import TranslationsProvider from '@/components/TranslationsProvider'
 import FooterItem from '@/components/FooterItem/FooterItem'
 import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher'
-import TabCartItem from '@/components/TabCartItem/TabCartItem'
 import HeaderItem from '@/components/HeaderItem/HeaderItem'
+import dynamic from 'next/dynamic'
+
+const Flipbook = dynamic(() => import('@/components/FlipBook/FlipBook'), { ssr: false })
 
 
 const namespaces = ['spa', 'home']
@@ -18,7 +20,9 @@ return (
             <HeaderItem v={"v3"} transparent/>
             <h1 className="italictiempos_title text-quaternary">Spa</h1>
             <LanguageSwitcher />
-            <TabCartItem collection={"spa"} />
+            <div className='px-10 info_container'>
+                <Flipbook pdf={"/assets/pdf/spa.pdf"} />
+            </div>
             <FooterItem transparent logo={"v11"}/>
         </div>
     </TranslationsProvider>

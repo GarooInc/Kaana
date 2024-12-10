@@ -4,7 +4,9 @@ import TranslationsProvider from '@/components/TranslationsProvider'
 import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher'
 import HeaderItem from '@/components/HeaderItem/HeaderItem'
 import FooterItem from '@/components/FooterItem/FooterItem'
-import TabCartItem from '@/components/TabCartItem/TabCartItem'
+import dynamic from 'next/dynamic'
+
+const Flipbook = dynamic(() => import('@/components/FlipBook/FlipBook'), { ssr: false })
 
 
 const namespaces = ['adventures', 'header']
@@ -17,7 +19,9 @@ return (
         <div className="page bg-secondary relative">
             <HeaderItem v={"v3"} transparent/>
             <h1 className="italictiempos_title text-quaternary">{t('adventures:title')}</h1>
-            <TabCartItem collection={"adventures"} noTags />
+            <div className='px-10 info_container'>
+                <Flipbook pdf={"/assets/pdf/adventures.pdf"} />
+            </div>
             <FooterItem transparent logo={"v11"}/>
         </div>
         <LanguageSwitcher />
