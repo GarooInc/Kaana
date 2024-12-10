@@ -12,7 +12,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 
 // Componente para páginas individuales del FlipBook
 const Pages = React.forwardRef((props, ref) => (
-    <div className="demoPage" ref={ref} style={{ height: '100%', width: '100%' }}>
+    <div className="demoPage w-full h-full" ref={ref} style={{ height: '100%', width: '100%' }}>
         {props.children}
     </div>
 ));
@@ -37,7 +37,7 @@ const Flipbook = ({ pdf }) => {
                             height: '100%',
                         }}
                         width={400}
-                        height={600}
+                        height={580}
                         className="w-full h-full"
                         showCover={true}
                     >

@@ -294,3 +294,9 @@
 .phone_text{
   @apply md:text-sm text-xs text-primary font-futura;
 }
+
+/* flip book */
+
+.react-pdf__Page, .stf__parent canvas{
+  height: 100% !important;
+}
