@@ -58,7 +58,7 @@ const ServicesItem = ({ room, collection}) => {
                         <img className="object-contain h-24" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.image}?token=`} alt={item.name} />
                         <h3 className="text-primary font-futura tracking-wider uppercase">{item[`title_${currentLocale}`]}</h3>
                         <p className="text-primary text-xs  leading-none font-futura font-bold">${item.price}</p>
-                        <button className='green_button absolute bottom-4 uppercase' onClick={() => addToCart(item)}>Add</button>
+                        <button className='green_button absolute bottom-4 uppercase' onClick={() => addToCart(item)}>{currentLocale === 'es' ? 'Solicitar' : 'Request'}</button>
                     </div>
                 ))
             ) : (

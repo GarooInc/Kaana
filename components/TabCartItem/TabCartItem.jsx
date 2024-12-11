@@ -70,7 +70,7 @@ const TabCartItem = ({ collection, noTags }) => {
     };
 
     return (
-        <div className='flex flex-col gap-10 w-full pb-20'>
+        <div className='flex flex-col gap-10 w-full'>
             {!noTags && 
             <div className="relative w-full flex p-4 justify-center items-center">
                 <div className="menu_arrow_left" onClick={scrollLeft}>
@@ -98,15 +98,11 @@ const TabCartItem = ({ collection, noTags }) => {
             }
             <div className="adventure_container">
                 {filteredItems.map((item, index) => (
-                    <div key={index} className={`pb-16 gap-2 flex flex-col relative ${(index + 1) % 4 !== 0 ? 'xl:border-r xl:border-black' : ''} ${(index + 1) % 2 !== 0 ? 'xl:border-r xl:border-black' : ''}`}>
+                    <div key={index} className={`pb-16 gap-2 flex flex-col relative ${(index + 1) % 5 !== 0 ? 'xl:border-r xl:border-black' : ''} ${(index + 1) % 5 !== 0 ? 'xl:border-r xl:border-black' : ''}`}>
                         <img className="adventure_img" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.image}?token=`} alt={item.name} />
                         <div className='flex flex-col gap-4  w-full px-4'>
                             <h3 className="adventure_title">{item[`title_${currentLocale}`]}</h3>
                             <p className="text-black text-md font-futura leading-6 tracking-tight" dangerouslySetInnerHTML={{ __html: item[`desc_${currentLocale}`] }}></p>
-                            <p className="text-primary text-xs  leading-none font-futura font-bold">
-                                { collection === 'spa' ? (currentLocale === 'es' ? 'Desde' : 'From') : ''} ${item.price}
-                            </p>
-                            <button className='green_button w-[200px] absolute bottom-4 right-4' onClick={() => addToCart(item)}> {currentLocale === 'es' ? 'Solicitar información' : 'Request information'}</button>
                         </div>
                     </div>
                 ))}

@@ -45,7 +45,10 @@ const FoodDrinksItem = () => {
                     <div className='food_drinks_info'>
                         <h3 className="food_drinks_title">{item[`name_${currentLocale}`]}</h3>
                         <div className='food_drinks_description_container'>
-                            <span className='food_drinks_description'>{item[`description_${currentLocale}`]}</span>
+                        <span 
+                            className='food_drinks_description' 
+                            dangerouslySetInnerHTML={{ __html: item[`description_${currentLocale}`] }} 
+                            />
                         </div>
                         <div className='food_drinks_icons_container'>
                                 <p className="food_drinks_text">

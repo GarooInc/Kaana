@@ -89,6 +89,10 @@
   margin-bottom: 1rem;
 }
 
+.experiences a{
+  @apply underline text-tertiary;
+}
+
 .green_button{
   @apply bg-tertiary text-white  px-6 py-2 mt-2 text-sm font-futura;
 }
@@ -151,7 +155,7 @@
 
 /* adventure */
 .adventure_container{
-  @apply grid grid-cols-1 gap-4 md:gap-0 xl:grid-cols-4 grid-flow-row-dense auto-rows-auto md:px-10 pb-10 w-full;
+  @apply grid grid-cols-1 gap-4 md:gap-0 xl:grid-cols-5 grid-flow-row-dense auto-rows-auto md:px-10 w-full;
 }
 
 .adventure_img{
@@ -275,7 +279,7 @@
 }
 
 .food_drinks_description{
-  @apply text-secondary md:text-lg text-sm font-tiempos leading-6 text-justify;
+  @apply text-secondary md:text-lg text-sm font-futura leading-6 text-justify;
 }
 
 .food_drinks_icons_container{

@@ -30,7 +30,7 @@ const ExperienceInnerItem = ({experienceId}) => {
     }, [current]);
 
   return (
-    <div classnName="w-full">
+    <div className="w-full">
         {
             loading ? <span className="loading loading-spinner loading-sm"></span>            : (
                 <div className='flex flex-col justify-center md:flex-row w-full items-stretch pb-20'>
@@ -40,7 +40,7 @@ const ExperienceInnerItem = ({experienceId}) => {
                     </div>
                     <div className='p-10 bg-cream md:min-h-full md:w-1/2 flex flex-col justify-center'>
                         <h1 className="text-2xl md:text-4xl text-start text-primary font-futura font-bold">{experience.title}</h1>
-                        <div className="text-black md:px-0 gap-4 flex flex-col experiences" dangerouslySetInnerHTML={{ __html: experience[`description_${currentLocale}`] }}></div>
+                        <div className="text-black md:px-0 gap-4 flex flex-col experiences futura_description" dangerouslySetInnerHTML={{ __html: experience[`description_${currentLocale}`] }}></div>
                     </div>
                 </div>
             )

@@ -19,9 +19,10 @@ return (
                 <HeaderItem v={"v3"} transparent/>
                 <div className="w-full rounded-lg  px-10 font-futura text-black text-center flex flex-col justify-center items-center gap-4">
                     <h2 className='italictiempos_title text-quaternary'>{t('activities:title')}</h2>
-                    <span className='md:w-1/3 futura_description text-quaternary text-center'>
-                        {t('activities:desc')}
-                    </span>
+                    <div className='md:w-2/3 text-quaternary text-justify flex flex-col gap-4'>
+                        <p className='futura_description'>{t('activities:desc')}</p>
+                        <p className='futura_description'>{t('activities:desc2')}</p>
+                    </div>
                 </div>
                 <ActivitiesItem />
             </div>
