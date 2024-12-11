@@ -18,8 +18,8 @@ return (
             <HeaderItem v={"v12"} transparent whiteArrow/>
             <h1 className="principal_title italic">{t('amenities:title')}</h1>
             <AmenitiesItem/>
-            <FooterItem  transparent logo={"v9"}/>
         </div>
+        <FooterItem  transparent logo={"v9"}/>
         <LanguageSwitcher />
     </TranslationsProvider>
   )
