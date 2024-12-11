@@ -14,12 +14,10 @@ export default async function Amenities({ params: { locale }}) {
 
 return (
     <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
-        <div className="page bg-tertiary h-screen">
+        <div className="page bg-tertiary">
             <HeaderItem v={"v12"} transparent whiteArrow/>
-            <div className='info_container'>
-                <h1 className="principal_title italic">{t('amenities:title')}</h1>
-                <AmenitiesItem/>
-            </div>
+            <h1 className="principal_title italic">{t('amenities:title')}</h1>
+            <AmenitiesItem/>
             <FooterItem  transparent logo={"v9"}/>
         </div>
         <LanguageSwitcher />
