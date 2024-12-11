@@ -34,7 +34,7 @@ const AmenitiesItem = () => {
     <div className="grid grid-cols-2 gap-4 md:grid-cols-4 grid-flow-row-dense auto-rows-auto p-10 w-full">
         {
             experiences.map((item, index) => (
-                <div key={index} className={`pb-12 gap-2 flex flex-col relative cursor-pointer`}
+                <div key={index} className={`md:pb-12 pb-8 gap-2 flex flex-col relative cursor-pointer`}
                     onClick={() => router.push(`/experience/${item.id}`)} style={{backgroundColor: item.background_color}}>
                     <img className="w-full md:h-60 h-32  object-cover" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.image}?token=`} alt={item.name} />
                     <div className='flex justify-center items-center'>
