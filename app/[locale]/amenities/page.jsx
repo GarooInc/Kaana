@@ -20,7 +20,7 @@ return (
                 <h1 className="principal_title italic">{t('amenities:title')}</h1>
                 <AmenitiesItem/>
             </div>
-            <FooterItem  transparent logo={"v9"}/>
+            <FooterItem  transparent logo={"v9"} fixed/>
         </div>
         <LanguageSwitcher />
     </TranslationsProvider>
