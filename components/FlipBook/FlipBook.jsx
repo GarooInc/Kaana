@@ -7,7 +7,6 @@ import { pdfjs } from 'react-pdf';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
-// Componente para páginas individuales del FlipBook
 const Pages = React.forwardRef((props, ref) => (
     <div className="demoPage w-full h-full" ref={ref} style={{ height: '100%', width: '100%' }}>
         {props.children}
