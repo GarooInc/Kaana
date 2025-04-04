@@ -21,7 +21,7 @@ const ActivitiesItem = () => {
         const fetchData = async () => {
             try {
                 const records = await pb.collection('Activities_Calendar').getFullList({
-                    sort: '-created',
+                    sort: 'order_num',
                 });
                 console.log(records)
                 setActivities(records);
@@ -40,13 +40,10 @@ const ActivitiesItem = () => {
             activities.map((item, index) => (
                 <div 
                 key={index} 
-                className={`bg-secondary px-2 py-4 gap-2 flex md:flex-col relative cursor-pointer 
-                ${(index + 1) % 4 !== 0 ? 'md:border-r md:border-black border-b border-black' : ''} 
-                ${(index + 1) % 2 !== 0 ? 'md:border-r md:border-black' : ''}`}>
+                className={`bg-secondary px-2 py-4 gap-2 flex md:flex-col relative cursor-pointer md:border border-black border-b`}>
                     <div className='flex justify-center w-full items-center'>
                         <img className="md:h-60 h-28 object-cover md:object-contain" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.Image}?token=`} alt={item.name} />
                     </div>
-                    {/* añadir un separador de imagen */}
                     <div className="separator"></div>
                     <div className='flex flex-col gap-4  w-full'>
                         <h3 className="font-futura uppercase text-black">{item[`title_${currentLocale}`]}</h3>
