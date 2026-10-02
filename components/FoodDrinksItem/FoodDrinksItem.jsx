@@ -14,8 +14,14 @@ const FoodDrinksItem = () => {
     const pb = new PocketBase(backendUrl);
     pb.autoCancellation(false);
 
-    const openPdf = (item) => {
-        window.open(`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.menu_pdf}?token=`);
+    const menuButtons = [
+        { field: 'breakfast_pdf', label: { en: 'Breakfast Menu', es: 'Menú de desayuno' } },
+        { field: 'lunch_pdf', label: { en: 'Lunch Menu', es: 'Menú de almuerzo' } },
+        { field: 'kids_pdf', label: { en: 'Kids Menu', es: 'Menú infantil' } },
+    ];
+
+    const openPdf = (item, field = 'menu_pdf') => {
+        window.open(`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item[field]}?token=`);
     };
     
     const { i18n } = useTranslation();
@@ -73,10 +79,15 @@ const FoodDrinksItem = () => {
                                     <TbClockHour3Filled className="text-secondary text-md" />
                                     {item.open} - {item.closes}
                                 </p>
-                                {(item.menu_pdf || item.whatsapp_number) && (
+                                {(menuButtons.some(({ field }) => item[field]) || item.menu_pdf || item.whatsapp_number) && (
                                     <div className='flex flex-wrap gap-3 justify-between items-center w-full'>
                                         <div className='flex flex-wrap gap-3'>
-                                            {item.menu_pdf && (
+                                            {menuButtons.some(({ field }) => item[field]) ? (
+                                                menuButtons.filter(({ field }) => item[field]).map(({ field, label }) => (
+                                                    <button key={field} className='menu_btn' onClick={() => openPdf(item, field)}>{label[currentLocale] || label.es}</button>
+                                                ))
+                                            ) : (
+                                                item.menu_pdf &&
                                                 <button className='menu_btn' onClick={() => openPdf(item)}>Menu</button>
                                             )}
                                         </div>
