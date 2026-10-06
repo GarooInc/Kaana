@@ -17,6 +17,7 @@ const FoodDrinksItem = () => {
     const menuButtons = [
         { field: 'breakfast_pdf', label: { en: 'Breakfast Menu', es: 'Menú de desayuno' } },
         { field: 'lunch_pdf', label: { en: 'Lunch Menu', es: 'Menú de almuerzo' } },
+        { field: 'dinner_pdf', label: { en: 'Dinner Menu', es: 'Menú de cena' } },
         { field: 'kids_pdf', label: { en: 'Kids Menu', es: 'Menú infantil' } },
     ];
 
