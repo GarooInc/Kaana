@@ -82,14 +82,12 @@ const FoodDrinksItem = () => {
                                 {(menuButtons.some(({ field }) => item[field]) || item.menu_pdf || item.whatsapp_number) && (
                                     <div className='flex flex-wrap gap-3 justify-between items-center w-full'>
                                         <div className='flex flex-wrap gap-3'>
-                                            {menuButtons.some(({ field }) => item[field]) ? (
-                                                menuButtons.filter(({ field }) => item[field]).map(({ field, label }) => (
-                                                    <button key={field} className='menu_btn' onClick={() => openPdf(item, field)}>{label[currentLocale] || label.es}</button>
-                                                ))
-                                            ) : (
-                                                item.menu_pdf &&
+                                            {item.menu_pdf && (
                                                 <button className='menu_btn' onClick={() => openPdf(item)}>Menu</button>
                                             )}
+                                            {menuButtons.filter(({ field }) => item[field]).map(({ field, label }) => (
+                                                <button key={field} className='menu_btn' onClick={() => openPdf(item, field)}>{label[currentLocale] || label.es}</button>
+                                            ))}
                                         </div>
                                         {item.whatsapp_number && (
                                             <div className='flex flex-wrap gap-3'>
